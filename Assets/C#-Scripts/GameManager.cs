@@ -100,14 +100,15 @@ public class GameManager : MonoBehaviour {
 			spinCenter++;
 		}
 		
-		int id = Random.Range(0, max);
+		//int id = Random.Range(0, max);
+		int id = Random.Range (0, endVector.Length);
 		elapsedTime = 0;
 		//final rotate
 		while (elapsedTime < time)
 		{
 			elapsedTime += Time.deltaTime;
 			
-			cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
+			cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endVector[id], (elapsedTime / time));
 		}
 		
 		hasBeenSpun = true;
