@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour {
 		oBox.text = oCntr.ToString();
 	}
 	
-	void reStart()
+	public void reStart()
 	{
 		Application.LoadLevel(0);
 	}
