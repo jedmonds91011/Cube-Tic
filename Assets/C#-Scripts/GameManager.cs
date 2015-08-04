@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour {
 	public Button spinButton;
 	
 	private Vector3[] endVector = new Vector3[6];
-	private Vector3[] endCube = new Vector3[9];
+	public List<Vector3> endCube = new List<Vector3>();
+	//public Vector3[] endCube = new Vector3[9];
 	
 	// Use this for initialization
 	void Start () 
@@ -69,28 +70,26 @@ public class GameManager : MonoBehaviour {
 	void SpinCube()
 	{
 		// clear any prev cube destination
-		System.Array.Clear(endCube,0,endCube.Length);
-		
+		//System.Array.Clear(endCube,0,endCube.Length);
+		endCube.Clear();
 		for (int i = 0; i < 6; i++)
 		{	
 			for (int j = 0; j < (9 - aSides[i]); j++)
 			{
-				endCube[i] = endVector[i];
+				endCube.Add(endVector[i]);
 			}
 		}
 		
-		StartCoroutine( CubeRotation());
-		
+		StartCoroutine(CubeRotation());
 	}
 	
 	IEnumerator CubeRotation ()
 	{
-		
 		float elapsedTime = 0;
 		float time = 0.1f;
 		
 		int spinCenter = 0;
-		int max = endCube.Length;
+		int max = endCube.Count;
 		
 		/*while(spinCenter < 10)
 		{
@@ -112,29 +111,28 @@ public class GameManager : MonoBehaviour {
 		}
 		
 		//int id = Random.Range(0, max);
-		int id = Random.Range (0, endVector.Length);
+		int id = Random.Range (0, endCube.Count);
 
-		if(completedFaces.Count < 6)
-		{
-			while(aSides[id] > 8)
-			{
-				id = Random.Range(0,endVector.Length);
-			}
-		}
-		else
-		{
-			gameIsOver = true;
-		}
+//		if(completedFaces.Count < 6)
+//		{
+//			while(aSides[id] > 8)
+//			{
+//				id = Random.Range(0,endVector.Length);
+//			}
+//		}
+//		else
+//		{
+//			gameIsOver = true;
+//		}
+		id = Random.Range(0,max);
 
 		elapsedTime = 0;
+
 		//final rotate
-
-
-
 		while (elapsedTime < time)
 		{
 			elapsedTime += Time.deltaTime;
-			cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endVector[id], (elapsedTime / time));
+			cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 		}
 		
 		hasBeenSpun = true;

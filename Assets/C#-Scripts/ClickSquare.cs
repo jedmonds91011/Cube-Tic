@@ -34,8 +34,8 @@ public class ClickSquare : MonoBehaviour {
 						int answer = (side * 100) + (x * 10) + (y * 1);
 						gameManager.aSquares[answer] = gameManager.currentPlayer;
 						gameManager.clickCount++;
-						gameManager.aSides[side]++;
-						if(gameManager.aSides[side] > 8)
+						gameManager.aSides[side-1]++;
+						if(gameManager.aSides[side-1] > 8)
 						{
 							gameManager.completedFaces.Add (side);
 							if(gameManager.completedFaces.Count > 5)
@@ -80,7 +80,7 @@ public class ClickSquare : MonoBehaviour {
 	void UpdateX(int cbx)
 	{
 		gameManager.xCount++;
-		gameManager.wCombos[cbx] =1;
+		gameManager.wCombos[cbx] = 1;
 		gameManager.UpdateXCount(gameManager.xCount);
 	}
 	
