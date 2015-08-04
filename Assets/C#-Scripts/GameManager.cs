@@ -116,10 +116,10 @@ public class GameManager : MonoBehaviour {
 //			spinCenter++;
 //		}
 
-		float speed = 20f;
+		float speed = 50f;
 		//int faceIndex = Random.Range (0, 6);
-		Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
-		//Quaternion rotationTo = Random.rotationUniform;
+		//Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
+		Quaternion rotationTo = Random.rotationUniform;
 		//Quaternion rotationTo = Quaternion.Euler (new Vector3(cube.transform.localRotation.x - 180f, cube.transform.localRotation.y - 180f, cube.transform.localRotation.z- 180f));
 		while (spinCenter < 10)//elapsedTime < time)
 		{
@@ -134,8 +134,8 @@ public class GameManager : MonoBehaviour {
 				//faceIndex %= endVector.Length;
 				spinCenter++;
 				elapsedTime = 0;
-				rotationTo = Quaternion.Euler(endVector[Random.Range (0,6)]);
-				//rotationTo = Random.rotationUniform;
+				//rotationTo = Quaternion.Euler(endVector[Random.Range (0,6)]);
+				rotationTo = Random.rotationUniform;
 
 			}
 		}
