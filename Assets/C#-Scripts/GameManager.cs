@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	public Text oBox;
 	public Text cBox;
 	public Button spinButton;
-	
+
 	private Vector3[] endVector = new Vector3[6];
 	public List<Vector3> endCube = new List<Vector3>();
 	//public Vector3[] endCube = new Vector3[9];
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 		for (var j = 100; j < 623; j++) aSquares[j] = 9;
 		
 	}
+
 	
 	public void SpinButton ()
 	{
@@ -82,6 +83,11 @@ public class GameManager : MonoBehaviour {
 		
 		StartCoroutine(CubeRotation());
 	}
+
+	void finishCubeRotation(int cubeIndex)
+	{
+
+	}
 	
 	IEnumerator CubeRotation ()
 	{
@@ -103,42 +109,49 @@ public class GameManager : MonoBehaviour {
 			spinCenter++;
 		}*/
 		
-		while (spinCenter < 10)
+//		while (spinCenter < 10)
+//		{
+//			cube.transform.rotation = Random.rotation;
+//			yield return new WaitForSeconds(0.08f); // and let Unity free till the next frame	
+//			spinCenter++;
+//		}
+
+		float speed = 5.0f;
+		Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
+		while (spinCenter < 10)//elapsedTime < time)
 		{
-			cube.transform.rotation = Random.rotation;
-			yield return new WaitForSeconds(0.08f); // and let Unity free till the next frame	
-			spinCenter++;
+			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
+			
+			elapsedTime += (speed * Time.deltaTime);
+			cube.transform.rotation = Quaternion.Slerp (cube.transform.rotation,rotationTo,elapsedTime);
+			yield return new WaitForEndOfFrame();
+			if(elapsedTime > 1.0f)
+			{
+				spinCenter++;
+				elapsedTime = 0;
+				rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
+			}
 		}
-		
-		//int id = Random.Range(0, max);
-		int id = Random.Range (0, endCube.Count);
 
-//		if(completedFaces.Count < 6)
-//		{
-//			while(aSides[id] > 8)
-//			{
-//				id = Random.Range(0,endVector.Length);
-//			}
-//		}
-//		else
-//		{
-//			gameIsOver = true;
-//		}
-		id = Random.Range(0,max);
-
+		//final rotate, get the id of the final rotational axis from endCube bag.
+		//Reset elapsed time for Slerp to final destination.
+		int id = Random.Range (0, max);
 		elapsedTime = 0;
 
-		//final rotate
-		while (elapsedTime < time)
+		rotationTo = Quaternion.Euler (endCube [id]);
+		while (elapsedTime < 1.0f)//elapsedTime < time)
 		{
-			elapsedTime += Time.deltaTime;
-			cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
+			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
+
+			elapsedTime += (speed * Time.deltaTime);
+			cube.transform.rotation = Quaternion.Slerp (gameObject.transform.rotation,rotationTo,elapsedTime);
+			yield return new WaitForEndOfFrame();
 		}
+		cube.transform.rotation = rotationTo;
 		
 		hasBeenSpun = true;
 		UpdateInfo("Good Spin, " + playerName[currentPlayer] + " it's time to pick a square");
 	}
-	
 	
 	public void UpdateClickCount(int clkCnt)
 	{
