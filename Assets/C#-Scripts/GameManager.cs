@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -15,12 +16,14 @@ public class GameManager : MonoBehaviour {
 	public int[] aSquares = new int[700];
 	public int[] wCombos = new int[100];
 	public int[] aSides = new int[7];
+	public List<int> completedFaces;
 	
 	public GameObject cube;
 	public Text iBox;
 	public Text xBox;
 	public Text oBox;
 	public Text cBox;
+	public Button spinButton;
 	
 	private Vector3[] endVector = new Vector3[6];
 	private Vector3[] endCube = new Vector3[9];
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		completedFaces = new List<int> ();
 		UpdateInfo("Player " + playerName[currentPlayer] + " begins the game, Give it a good Spin!");
 		
 		endVector[0] = (new Vector3(20,180,-135));	// Yellow side	#1  Id-0
@@ -44,13 +48,21 @@ public class GameManager : MonoBehaviour {
 	
 	public void SpinButton ()
 	{
-		if (!hasBeenSpun)
+		if(completedFaces.Count < 6)
 		{
-			SpinCube();
+			if (!hasBeenSpun)
+			{
+				SpinCube();
+			}
+			else
+			{
+				UpdateInfo("Sorry, already Spun! Now you gotta Click!");
+			}
 		}
 		else
 		{
-			UpdateInfo("Sorry, already Spun! Now you gotta Click!");
+			//UpdateInfo ("
+			spinButton.interactable = false;
 		}
 	}
 	
@@ -58,7 +70,6 @@ public class GameManager : MonoBehaviour {
 	{
 		// clear any prev cube destination
 		System.Array.Clear(endCube,0,endCube.Length);
-		
 		
 		for (int i = 0; i < 6; i++)
 		{	
@@ -102,12 +113,27 @@ public class GameManager : MonoBehaviour {
 		
 		//int id = Random.Range(0, max);
 		int id = Random.Range (0, endVector.Length);
+
+		if(completedFaces.Count < 6)
+		{
+			while(aSides[id] > 8)
+			{
+				id = Random.Range(0,endVector.Length);
+			}
+		}
+		else
+		{
+			gameIsOver = true;
+		}
+
 		elapsedTime = 0;
 		//final rotate
+
+
+
 		while (elapsedTime < time)
 		{
 			elapsedTime += Time.deltaTime;
-			
 			cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endVector[id], (elapsedTime / time));
 		}
 		

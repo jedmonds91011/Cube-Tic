@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\C#-Scripts\ClickSquare.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\C#-Scripts\GameManager.cs">
     <Files>
-      <File FileName="Assets\C#-Scripts\GameManager.cs" Line="107" Column="29" />
-      <File FileName="Assets\Java-Scripts\GameLogic.js" Line="113" Column="17" />
-      <File FileName="Assets\C#-Scripts\ClickSquare.cs" Line="83" Column="62" />
+      <File FileName="Assets\Java-Scripts\GameLogic.js" Line="1" Column="1" />
+      <File FileName="Assets\C#-Scripts\GameManager.cs" Line="53" Column="21" />
+      <File FileName="Assets\C#-Scripts\ClickSquare.cs" Line="87" Column="23" />
+      <File FileName="Assets\Java-Scripts\ClickSquare.js" Line="1" Column="1" />
+      <File FileName="Assets\C#-Scripts\SpinIt.cs" Line="11" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

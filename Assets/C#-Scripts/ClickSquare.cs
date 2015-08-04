@@ -35,16 +35,38 @@ public class ClickSquare : MonoBehaviour {
 						gameManager.aSquares[answer] = gameManager.currentPlayer;
 						gameManager.clickCount++;
 						gameManager.aSides[side]++;
+						if(gameManager.aSides[side] > 8)
+						{
+							gameManager.completedFaces.Add (side);
+							if(gameManager.completedFaces.Count > 5)
+							{
+								gameManager.gameIsOver = true;
+							}
+						}
+
 						gameManager.hasBeenSpun = false;
 						//Debug.Log( "AFTER IS........ asides[" + side + "]= " + gameManager.aSides[side] + " @ " + Time.time);
 					}	
 				}
 				CheckForWinner();
 				ChangePlayer();
-				if(gameManager.gameIsOver) gameManager.UpdateInfo("Ok, " + gameManager.playerName[gameManager.currentPlayer] + " it's your turn to Spin");
+				if(!gameManager.gameIsOver) 
+				{
+					gameManager.UpdateInfo("Ok, " + gameManager.playerName[gameManager.currentPlayer] + " it's your turn to Spin");
+			
+				}
+			}
+			else
+			{
+				gameManager.UpdateInfo("Come on, Pick an Empty Square!");
 			}
 		}
+		else
+		{
+			gameManager.UpdateInfo("Gotta Spin before you can Click!");
+		}
 	}
+
 	
 	void ChangePlayer()
 	{
@@ -213,9 +235,9 @@ public class ClickSquare : MonoBehaviour {
 		//Debug.Log("Finished @ " + Time.time);
 		
 		
-		if (gameManager.clickCount >= 54)
+		if (gameManager.gameIsOver)
 		{
-			gameManager.gameIsOver = true;
+			//gameManager.gameIsOver = true;
 			if (gameManager.xCount == gameManager.oCount) 
 			{
 				gameManager.UpdateInfo("Game Over!, It's a TIE, NOOOOOOOO");
