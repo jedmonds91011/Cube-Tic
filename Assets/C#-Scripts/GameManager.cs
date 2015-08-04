@@ -116,35 +116,42 @@ public class GameManager : MonoBehaviour {
 //			spinCenter++;
 //		}
 
-		float speed = 5.0f;
+		float speed = 20f;
+		//int faceIndex = Random.Range (0, 6);
 		Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
+		//Quaternion rotationTo = Random.rotationUniform;
+		//Quaternion rotationTo = Quaternion.Euler (new Vector3(cube.transform.localRotation.x - 180f, cube.transform.localRotation.y - 180f, cube.transform.localRotation.z- 180f));
 		while (spinCenter < 10)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 			
 			elapsedTime += (speed * Time.deltaTime);
-			cube.transform.rotation = Quaternion.Slerp (cube.transform.rotation,rotationTo,elapsedTime);
+			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,speed*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
-			if(elapsedTime > 1.0f)
+			if(Quaternion.Angle(cube.transform.rotation,rotationTo) <= 1.0f)
 			{
+				//faceIndex++;
+				//faceIndex %= endVector.Length;
 				spinCenter++;
 				elapsedTime = 0;
-				rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
+				rotationTo = Quaternion.Euler(endVector[Random.Range (0,6)]);
+				//rotationTo = Random.rotationUniform;
+
 			}
 		}
 
 		//final rotate, get the id of the final rotational axis from endCube bag.
 		//Reset elapsed time for Slerp to final destination.
 		int id = Random.Range (0, max);
-		elapsedTime = 0;
-
+		elapsedTime = 0f;
 		rotationTo = Quaternion.Euler (endCube [id]);
-		while (elapsedTime < 1.0f)//elapsedTime < time)
+		speed = 10.0f;
+		while (Quaternion.Angle(cube.transform.rotation,rotationTo) >= 1.0f)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 
 			elapsedTime += (speed * Time.deltaTime);
-			cube.transform.rotation = Quaternion.Slerp (gameObject.transform.rotation,rotationTo,elapsedTime);
+			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,speed*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
 		}
 		cube.transform.rotation = rotationTo;
