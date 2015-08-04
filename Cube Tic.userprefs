@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Assets\C#-Scripts\GameManager.cs" Line="66" Column="36" />
       <File FileName="Assets\Java-Scripts\GameLogic.js" Line="42" Column="14" />
-      <File FileName="Assets\C#-Scripts\ClickSquare.cs" Line="84" Column="48" />
+      <File FileName="Assets\C#-Scripts\ClickSquare.cs" Line="35" Column="42" />
       <File FileName="Assets\Java-Scripts\ClickSquare.js" Line="30" Column="29" />
       <File FileName="Assets\C#-Scripts\SpinIt.cs" Line="11" Column="32" />
     </Files>
