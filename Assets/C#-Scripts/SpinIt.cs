@@ -25,42 +25,42 @@ public class SpinIt : MonoBehaviour {
 		{
 			transform.Rotate(new Vector3(number, 0, 8), turnSpeed * Time.deltaTime);
 			number++;
-			gameManager.hasBeenSpun = true;
+			GameManager.instance.hasBeenSpun = true;
 		}    
 		
 		if(Input.GetKey(KeyCode.Delete))
 		{
 			transform.Rotate(new Vector3(number, 0, 8), -turnSpeed * Time.deltaTime);	
 			number++;
-			gameManager.hasBeenSpun = true;
+			GameManager.instance.hasBeenSpun = true;
 		}
 		
 		if(Input.GetKey(KeyCode.UpArrow))
 		{
 			transform.Rotate(new Vector3(0, 8, number), turnSpeed * Time.deltaTime);
 			number++;
-			gameManager.hasBeenSpun = true;
+			GameManager.instance.hasBeenSpun = true;
 		}    
 		
 		if(Input.GetKey(KeyCode.DownArrow))
 		{
 			transform.Rotate(new Vector3(0, 8, number), -turnSpeed * Time.deltaTime);
 			number++;
-			gameManager.hasBeenSpun = true;
+			GameManager.instance.hasBeenSpun = true;
 		}    
 		
 		if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			transform.Rotate(new Vector3(0, number, 8), -turnSpeed * Time.deltaTime);
 			number++;
-			gameManager.hasBeenSpun = true;
+			GameManager.instance.hasBeenSpun = true;
 		}
 		
 		if(Input.GetKey(KeyCode.RightArrow))
 		{
 			transform.Rotate(new Vector3(0, number, 8), turnSpeed * Time.deltaTime);				
 			number++;
-			gameManager.hasBeenSpun = true;
+			GameManager.instance.hasBeenSpun = true;
 		}
 		
 		if(Input.GetKey("escape"))

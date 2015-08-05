@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-	
+	public static GameManager instance;
 	public int currentPlayer = 0;
 	public string[] playerObjName = new string[] {"X-obj", "O-obj"};
 	public string[] playerName = new string[] {"Scott", "Elliot"};
 	public bool gameIsOver = false;
 	public bool hasBeenSpun = false;
+	public bool cubeSpinning = false;
 	public int clickCount;
 	public int xCount;
 	public int oCount;
 	public int[] aSquares = new int[700];
 	public int[] wCombos = new int[100];
 	public int[] aSides = new int[7];
-	public List<int> completedFaces;
 	
 	public GameObject cube;
 	public Text iBox;
@@ -29,12 +29,19 @@ public class GameManager : MonoBehaviour {
 	public GameObject PanelOPlayer;
 	private Vector3[] endVector = new Vector3[6];
 	public List<Vector3> endCube = new List<Vector3>();
+
+	public int numCubeSpins;
+	public float cubeSpinSpeed;
 	//public Vector3[] endCube = new Vector3[9];
 	
 	// Use this for initialization
+	void Awake()
+	{
+		instance = this;
+	}
 	void Start () 
 	{
-		completedFaces = new List<int> ();
+
 		UpdateInfo("Player " + playerName[currentPlayer] + " begins the game, Give it a good Spin!");
 		
 		endVector[0] = (new Vector3(20,180,-135));	// Yellow side	#1  Id-0
@@ -52,10 +59,9 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-	
 	public void SpinButton ()
 	{
-		if(completedFaces.Count < 6)
+		if(!gameIsOver)
 		{
 			if (!hasBeenSpun)
 			{
@@ -73,10 +79,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	
-	void SpinCube()
+	public void SpinCube()
 	{
 		// clear any prev cube destination
 		//System.Array.Clear(endCube,0,endCube.Length);
+		cubeSpinning = true;
 		endCube.Clear();
 		for (int i = 0; i < 6; i++)
 		{	
@@ -87,11 +94,6 @@ public class GameManager : MonoBehaviour {
 		}
 		
 		StartCoroutine(CubeRotation());
-	}
-
-	void finishCubeRotation(int cubeIndex)
-	{
-
 	}
 	
 	IEnumerator CubeRotation ()
@@ -121,17 +123,17 @@ public class GameManager : MonoBehaviour {
 //			spinCenter++;
 //		}
 
-		float speed =40f;
+		//float speed =40f;
 		//int faceIndex = Random.Range (0, 6);
 		//Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
 		Quaternion rotationTo = Random.rotationUniform;
 		//Quaternion rotationTo = Quaternion.Euler (new Vector3(cube.transform.localRotation.x - 180f, cube.transform.localRotation.y - 180f, cube.transform.localRotation.z- 180f));
-		while (spinCenter < 5)//elapsedTime < time)
+		while (spinCenter < numCubeSpins)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 			
-			elapsedTime += (speed * Time.deltaTime);
-			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,speed*Time.deltaTime);
+			elapsedTime += (cubeSpinSpeed * Time.deltaTime);
+			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,cubeSpinSpeed*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
 			if(Quaternion.Angle(cube.transform.rotation,rotationTo) <= 1.0f)
 			{
@@ -150,17 +152,17 @@ public class GameManager : MonoBehaviour {
 		int id = Random.Range (0, max);
 		elapsedTime = 0f;
 		rotationTo = Quaternion.Euler (endCube [id]);
-		speed = 7.0f;
+		cubeSpinSpeed = 7.0f;
 		while (Quaternion.Angle(cube.transform.rotation,rotationTo) >= 1.0f)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 
-			elapsedTime += (speed * Time.deltaTime);
-			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,speed*Time.deltaTime);
+			elapsedTime += (cubeSpinSpeed * Time.deltaTime);
+			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,cubeSpinSpeed*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
 		}
 		cube.transform.rotation = rotationTo;
-		
+		cubeSpinning = false;
 		hasBeenSpun = true;
 		UpdateInfo("Good Spin, " + playerName[currentPlayer] + " it's time to pick a square");
 	}
