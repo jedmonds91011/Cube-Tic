@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 	public Text cBox;
 	public Button spinButton;
 
+	public GameObject PanelXPlayer;
+	public GameObject PanelOPlayer;
 	private Vector3[] endVector = new Vector3[6];
 	public List<Vector3> endCube = new List<Vector3>();
 	//public Vector3[] endCube = new Vector3[9];
@@ -41,6 +43,9 @@ public class GameManager : MonoBehaviour {
 		endVector[3] = (new Vector3(-45,-105,23));	// Red side		#4  Id-3
 		endVector[4] = (new Vector3(45,73,-25));	// White side	#5  Id-4
 		endVector[5] = (new Vector3(-45,-107,113));	// Magenta side	#6  Id-5
+
+		PanelXPlayer.SetActive (true);
+		PanelOPlayer.SetActive (false);
 		
 		//what does this do??
 		for (var j = 100; j < 623; j++) aSquares[j] = 9;
@@ -116,12 +121,12 @@ public class GameManager : MonoBehaviour {
 //			spinCenter++;
 //		}
 
-		float speed = 50f;
+		float speed =40f;
 		//int faceIndex = Random.Range (0, 6);
 		//Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
 		Quaternion rotationTo = Random.rotationUniform;
 		//Quaternion rotationTo = Quaternion.Euler (new Vector3(cube.transform.localRotation.x - 180f, cube.transform.localRotation.y - 180f, cube.transform.localRotation.z- 180f));
-		while (spinCenter < 10)//elapsedTime < time)
+		while (spinCenter < 5)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 			
@@ -145,7 +150,7 @@ public class GameManager : MonoBehaviour {
 		int id = Random.Range (0, max);
 		elapsedTime = 0f;
 		rotationTo = Quaternion.Euler (endCube [id]);
-		speed = 10.0f;
+		speed = 7.0f;
 		while (Quaternion.Angle(cube.transform.rotation,rotationTo) >= 1.0f)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));

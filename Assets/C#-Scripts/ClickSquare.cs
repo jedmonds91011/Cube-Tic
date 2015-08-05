@@ -74,6 +74,13 @@ public class ClickSquare : MonoBehaviour {
 		if(gameManager.currentPlayer > 1)
 		{
 			gameManager.currentPlayer = 0;
+			gameManager.PanelXPlayer.SetActive(true);
+			gameManager.PanelOPlayer.SetActive(false);
+		}
+		else
+		{
+			gameManager.PanelXPlayer.SetActive(false);
+			gameManager.PanelOPlayer.SetActive(true);
 		}
 	}
 	
