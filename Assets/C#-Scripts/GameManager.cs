@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
+	public AudioSource source;
 	public int currentPlayer = 0;
 	public string[] playerObjName = new string[] {"X-obj", "O-obj"};
 	public string[] playerName = new string[] {"Scott", "Elliot"};
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject PanelOPlayer;
 	private Vector3[] endVector = new Vector3[6];
 	public List<Vector3> endCube = new List<Vector3>();
+	public List<AudioClip> soundClips = new List<AudioClip> ();
 
 	public int numCubeSpins;
 	public float cubeSpinSpeed;
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour {
 	void Awake()
 	{
 		instance = this;
+		source = GetComponent<AudioSource> ();
 		if (Application.platform == RuntimePlatform.Android) {
 			spinButton.enabled= false;
 			spinButton.image.enabled = false;
@@ -94,6 +97,7 @@ public class GameManager : MonoBehaviour {
 		// clear any prev cube destination
 		//System.Array.Clear(endCube,0,endCube.Length);
 		cubeSpinning = true;
+		source.PlayOneShot (soundClips [0]);
 		endCube.Clear();
 		for (int i = 0; i < 6; i++)
 		{	
@@ -175,6 +179,7 @@ public class GameManager : MonoBehaviour {
 		hasBeenSpun = true;
 		cubeSpinSpeed = 50;
 		numCubeSpins = 15;
+		source.PlayOneShot (soundClips [1]);
 		UpdateInfo("Good Spin, " + playerName[currentPlayer] + " it's time to pick a square");
 	}
 	

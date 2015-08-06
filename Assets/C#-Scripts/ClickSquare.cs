@@ -20,6 +20,7 @@ public class ClickSquare : MonoBehaviour {
 				{
 					if(child.name == GameManager.instance.playerObjName[GameManager.instance.currentPlayer])
 					{
+						GameManager.instance.source.PlayOneShot(GameManager.instance.soundClips[4]);
 						//child.active = true; DIDN'T WORK W/ 5.0
 						child.gameObject.SetActive(true);
 						//Debug.Log( "BEFORE " + this.gameObject.name + " asides[" + side + "]= " + GameManager.instance.aSides[side] + " @ " + Time.time);
@@ -70,6 +71,7 @@ public class ClickSquare : MonoBehaviour {
 	
 	void UpdateX(int cbx)
 	{
+		GameManager.instance.source.PlayOneShot (GameManager.instance.soundClips [2]);
 		GameManager.instance.xCount++;
 		GameManager.instance.wCombos[cbx] = 1;
 		GameManager.instance.UpdateXCount(GameManager.instance.xCount);
@@ -77,6 +79,7 @@ public class ClickSquare : MonoBehaviour {
 	
 	void UpdateO(int cbo)
 	{
+		GameManager.instance.source.PlayOneShot (GameManager.instance.soundClips [2]);
 		GameManager.instance.oCount++;
 		GameManager.instance.wCombos[cbo] = 2;
 		GameManager.instance.UpdateOCount(GameManager.instance.oCount);
@@ -229,6 +232,7 @@ public class ClickSquare : MonoBehaviour {
 		if (GameManager.instance.clickCount >= 54)
 		{
 			GameManager.instance.gameIsOver = true;
+			GameManager.instance.source.PlayOneShot(GameManager.instance.soundClips[3]);
 			//GameManager.instance.gameIsOver = true;
 			if (GameManager.instance.xCount == GameManager.instance.oCount) 
 			{
