@@ -226,8 +226,9 @@ public class ClickSquare : MonoBehaviour {
 		//Debug.Log("Finished @ " + Time.time);
 		
 		
-		if (GameManager.instance.gameIsOver)
+		if (GameManager.instance.clickCount >= 54)
 		{
+			GameManager.instance.gameIsOver = true;
 			//GameManager.instance.gameIsOver = true;
 			if (GameManager.instance.xCount == GameManager.instance.oCount) 
 			{

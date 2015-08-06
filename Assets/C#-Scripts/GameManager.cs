@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour {
 	public Text xBox;
 	public Text oBox;
 	public Text cBox;
+	public Text spinButtonText;
 	public Button spinButton;
+	public Button resetButton;
+	public Button endGameButton;
 
 	public GameObject PanelXPlayer;
 	public GameObject PanelOPlayer;
@@ -38,6 +41,12 @@ public class GameManager : MonoBehaviour {
 	void Awake()
 	{
 		instance = this;
+		if (Application.platform == RuntimePlatform.Android) {
+			spinButton.enabled= false;
+			spinButton.image.enabled = false;
+			spinButtonText.enabled = false;
+
+		}
 	}
 	void Start () 
 	{
@@ -56,8 +65,8 @@ public class GameManager : MonoBehaviour {
 		
 		//what does this do??
 		for (var j = 100; j < 623; j++) aSquares[j] = 9;
-		numCubeSpins = 10;
-		cubeSpinSpeed = 40;
+		numCubeSpins = 15;
+		cubeSpinSpeed = 50;
 	}
 
 	public void SpinButton ()
@@ -164,8 +173,8 @@ public class GameManager : MonoBehaviour {
 		cube.transform.rotation = rotationTo;
 		cubeSpinning = false;
 		hasBeenSpun = true;
-		cubeSpinSpeed = 40;
-		numCubeSpins = 10;
+		cubeSpinSpeed = 50;
+		numCubeSpins = 15;
 		UpdateInfo("Good Spin, " + playerName[currentPlayer] + " it's time to pick a square");
 	}
 	

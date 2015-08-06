@@ -30,6 +30,11 @@ public class TouchManager : MonoBehaviour, IPointerDownHandler {
 			if(myTouch.phase == TouchPhase.Moved)
 			{
 				touchEnd = myTouch.position;
+				if(timeDifference - Time.time > 0.1f)
+				{
+					GameManager.instance.resetButton.interactable = false;
+					GameManager.instance.endGameButton.interactable = false;
+				}
 			}
 			if(myTouch.phase == TouchPhase.Ended && !GameManager.instance.cubeSpinning && !GameManager.instance.hasBeenSpun)
 			{
@@ -40,9 +45,9 @@ public class TouchManager : MonoBehaviour, IPointerDownHandler {
 					GameManager.instance.cubeSpinSpeed = Mathf.Clamp ((75 - (timeDifference * 100)),40,60);
 					GameManager.instance.numCubeSpins = Mathf.Clamp (Mathf.RoundToInt(GameManager.instance.cubeSpinSpeed-45),5,25);
 					GameManager.instance.SpinCube();
-
 				}
-		
+				GameManager.instance.resetButton.interactable = true;
+				GameManager.instance.endGameButton.interactable = true;
 			}
 		}	
 //		if(Input.GetMouseButtonDown(0) && !GameManager.instance.cubeSpinning && !GameManager.instance.hasBeenSpun)
