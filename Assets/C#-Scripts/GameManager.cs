@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour {
 		
 		//what does this do??
 		for (var j = 100; j < 623; j++) aSquares[j] = 9;
-		
+		numCubeSpins = 10;
+		cubeSpinSpeed = 40;
 	}
 
 	public void SpinButton ()
@@ -152,18 +153,19 @@ public class GameManager : MonoBehaviour {
 		int id = Random.Range (0, max);
 		elapsedTime = 0f;
 		rotationTo = Quaternion.Euler (endCube [id]);
-		cubeSpinSpeed = 7.0f;
 		while (Quaternion.Angle(cube.transform.rotation,rotationTo) >= 1.0f)//elapsedTime < time)
 		{
 			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
 
 			elapsedTime += (cubeSpinSpeed * Time.deltaTime);
-			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,cubeSpinSpeed*Time.deltaTime);
+			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,7.0f*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
 		}
 		cube.transform.rotation = rotationTo;
 		cubeSpinning = false;
 		hasBeenSpun = true;
+		cubeSpinSpeed = 40;
+		numCubeSpins = 10;
 		UpdateInfo("Good Spin, " + playerName[currentPlayer] + " it's time to pick a square");
 	}
 	
