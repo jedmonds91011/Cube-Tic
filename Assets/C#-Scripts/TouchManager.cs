@@ -18,7 +18,7 @@ public class TouchManager : MonoBehaviour, IPointerDownHandler {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.touches.Length >0)
+		if(Input.touches.Length >0 && !GameManager.instance.gameIsOver)
 		{
 			Touch myTouch = Input.GetTouch(0);
 			if(myTouch.phase == TouchPhase.Began)

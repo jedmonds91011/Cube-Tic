@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public AudioSource source;
+	public AudioSource backgroundMusic;
 	public int currentPlayer = 0;
 	public string[] playerObjName = new string[] {"X-obj", "O-obj"};
 	public string[] playerName = new string[] {"Scott", "Elliot"};
@@ -43,7 +44,9 @@ public class GameManager : MonoBehaviour {
 	void Awake()
 	{
 		instance = this;
+		backgroundMusic.Play ();
 		source = GetComponent<AudioSource> ();
+		gameIsOver = false;
 		if (Application.platform == RuntimePlatform.Android) {
 			spinButton.enabled= false;
 			spinButton.image.enabled = false;

@@ -232,6 +232,7 @@ public class ClickSquare : MonoBehaviour {
 		if (GameManager.instance.clickCount >= 54)
 		{
 			GameManager.instance.gameIsOver = true;
+			GameManager.instance.backgroundMusic.Stop ();
 			GameManager.instance.source.PlayOneShot(GameManager.instance.soundClips[3]);
 			//GameManager.instance.gameIsOver = true;
 			if (GameManager.instance.xCount == GameManager.instance.oCount) 
