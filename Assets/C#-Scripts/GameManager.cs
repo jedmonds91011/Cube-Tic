@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour {
 
 	public int numCubeSpins;
 	public float cubeSpinSpeed;
+	public int endFaceIndex;
+	public Vector3 endCubeVector;
 	//public Vector3[] endCube = new Vector3[9];
 	
 	// Use this for initialization
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour {
 		cubeSpinSpeed = 50;
 	}
 
+
 	public void SpinButton ()
 	{
 		if(!gameIsOver)
@@ -82,6 +86,8 @@ public class GameManager : MonoBehaviour {
 			if (!hasBeenSpun)
 			{
 				SpinCube();
+				//CmdSpinCube();
+				//RpcSpin();
 			}
 			else
 			{
@@ -101,14 +107,14 @@ public class GameManager : MonoBehaviour {
 		//System.Array.Clear(endCube,0,endCube.Length);
 		cubeSpinning = true;
 		source.PlayOneShot (soundClips [0]);
-		endCube.Clear();
-		for (int i = 0; i < 6; i++)
-		{	
-			for (int j = 0; j < (9 - aSides[i]); j++)
-			{
-				endCube.Add(endVector[i]);
-			}
-		}
+//		endCube.Clear();
+//		for (int i = 0; i < 6; i++)
+//		{	
+//			for (int j = 0; j < (9 - aSides[i]); j++)
+//			{
+//				endCube.Add(endVector[i]);
+//			}
+//		}
 		
 		StartCoroutine(CubeRotation());
 	}
@@ -121,58 +127,26 @@ public class GameManager : MonoBehaviour {
 		int spinCenter = 0;
 		int max = endCube.Count;
 		
-		/*while(spinCenter < 10)
-		{
-			while (elapsedTime < time) {
-				elapsedTime += Time.deltaTime; 
-				
-				// Rotations
-				cube.transform.rotation = Quaternion.Slerp(cube.transform.rotation, Random.rotation,  (elapsedTime / time));
-				yield return new WaitForEndOfFrame ();
-			}
-			spinCenter++;
-		}*/
-		
-//		while (spinCenter < 10)
-//		{
-//			cube.transform.rotation = Random.rotation;
-//			yield return new WaitForSeconds(0.08f); // and let Unity free till the next frame	
-//			spinCenter++;
-//		}
-
-		//float speed =40f;
-		//int faceIndex = Random.Range (0, 6);
-		//Quaternion rotationTo = Quaternion.Euler(endVector[Random.Range(0,6)]);
 		Quaternion rotationTo = Random.rotationUniform;
-		//Quaternion rotationTo = Quaternion.Euler (new Vector3(cube.transform.localRotation.x - 180f, cube.transform.localRotation.y - 180f, cube.transform.localRotation.z- 180f));
 		while (spinCenter < numCubeSpins)//elapsedTime < time)
 		{
-			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
-			
 			elapsedTime += (cubeSpinSpeed * Time.deltaTime);
 			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,cubeSpinSpeed*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
 			if(Quaternion.Angle(cube.transform.rotation,rotationTo) <= 1.0f)
 			{
-				//faceIndex++;
-				//faceIndex %= endVector.Length;
 				spinCenter++;
 				elapsedTime = 0;
-				//rotationTo = Quaternion.Euler(endVector[Random.Range (0,6)]);
 				rotationTo = Random.rotationUniform;
-
 			}
 		}
-
 		//final rotate, get the id of the final rotational axis from endCube bag.
 		//Reset elapsed time for Slerp to final destination.
 		int id = Random.Range (0, max);
 		elapsedTime = 0f;
-		rotationTo = Quaternion.Euler (endCube [id]);
+		rotationTo = Quaternion.Euler (endCubeVector);
 		while (Quaternion.Angle(cube.transform.rotation,rotationTo) >= 1.0f)//elapsedTime < time)
 		{
-			//cube.transform.eulerAngles = Vector3.Lerp(cube.transform.eulerAngles, endCube[id], (elapsedTime / time));
-
 			elapsedTime += (cubeSpinSpeed * Time.deltaTime);
 			cube.transform.rotation = Quaternion.Lerp (cube.transform.rotation,rotationTo,7.0f*Time.deltaTime);
 			yield return new WaitForEndOfFrame();
@@ -184,6 +158,21 @@ public class GameManager : MonoBehaviour {
 		numCubeSpins = 15;
 		source.PlayOneShot (soundClips [1]);
 		UpdateInfo("Good Spin, " + playerName[currentPlayer] + " it's time to pick a square");
+	}
+
+	public void getEndCubeFace()
+	{
+		endCube.Clear();
+		for (int i = 0; i < 6; i++)
+		{	
+			for (int j = 0; j < (9 - aSides[i]); j++)
+			{
+				endCube.Add(endVector[i]);
+			}
+		}
+
+		endFaceIndex = Random.Range (0, endCube.Count);
+		endCubeVector = endCube [endFaceIndex];
 	}
 	
 	public void UpdateClickCount(int clkCnt)
@@ -208,6 +197,12 @@ public class GameManager : MonoBehaviour {
 	
 	public void reStart()
 	{
-		Application.LoadLevel(0);
+		Application.LoadLevel(1);
 	}
+
+
+	//////////////////////////////////////////////////////////
+	/// Begin Networking test
+	/// 
+
 }

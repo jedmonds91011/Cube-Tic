@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\C#-Scripts\ClickSquare.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\C#-Scripts\GameManager.cs">
     <Files>
-      <File FileName="Assets\Network\NetworkManager.cs" Line="45" Column="5" />
-      <File FileName="Assets\C#-Scripts\SpinIt.cs" Line="1" Column="1" />
-      <File FileName="Assets\C#-Scripts\GameManager.cs" Line="47" Column="27" />
-      <File FileName="Assets\C#-Scripts\TouchManager.cs" Line="29" Column="5" />
-      <File FileName="Assets\C#-Scripts\ClickSquare.cs" Line="235" Column="49" />
+      <File FileName="Assets\C#-Scripts\TouchManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\C#-Scripts\GameManager.cs" Line="83" Column="3" />
+      <File FileName="Assets\C#-Scripts\ClickSquare.cs" Line="1" Column="1" />
+      <File FileName="Assets\networkTest.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Josh\Documents\GitHub\Cube Tic\Assets\C#-Scripts\TouchManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

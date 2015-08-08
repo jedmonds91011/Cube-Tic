@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class ClickSquare : MonoBehaviour {
+public class ClickSquare : NetworkBehaviour {
 	
 	public int side;
 	public int x;
 	public int y;
+
+	[SyncVar]
+	public int xCount = 0;
+	[SyncVar]
+	public int oCount = 0;
 	
 	private bool isUsed = false;
 		
@@ -68,21 +74,40 @@ public class ClickSquare : MonoBehaviour {
 			GameManager.instance.PanelOPlayer.SetActive(true);
 		}
 	}
-	
+	[ClientRpc]
+	void RpcUpdateX()
+	{
+		Debug.LogError ("Update x count");
+	}
+	[ClientRpc]
+	void RpcUpdateO()
+	{
+		Debug.LogError ("Update o count");
+	}
 	void UpdateX(int cbx)
 	{
+		if (!isServer)
+			return;
+
 		GameManager.instance.source.PlayOneShot (GameManager.instance.soundClips [2]);
-		GameManager.instance.xCount++;
+		//GameManager.instance.xCount++;
+		xCount++;
+		GameManager.instance.xCount = xCount;
 		GameManager.instance.wCombos[cbx] = 1;
 		GameManager.instance.UpdateXCount(GameManager.instance.xCount);
+		RpcUpdateX ();
 	}
-	
 	void UpdateO(int cbo)
 	{
+		if (!isServer)
+			return;
 		GameManager.instance.source.PlayOneShot (GameManager.instance.soundClips [2]);
-		GameManager.instance.oCount++;
+		//GameManager.instance.oCount++;
+		oCount++;
+		GameManager.instance.oCount = oCount;
 		GameManager.instance.wCombos[cbo] = 2;
 		GameManager.instance.UpdateOCount(GameManager.instance.oCount);
+		RpcUpdateO();
 	}
 	
 	void CheckForWinner()

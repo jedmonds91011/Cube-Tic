@@ -50,7 +50,9 @@
      <Compile Include="Assets\C#-Scripts\GameManager.cs" />
      <Compile Include="Assets\C#-Scripts\SpinIt.cs" />
      <Compile Include="Assets\C#-Scripts\TouchManager.cs" />
+     <Compile Include="Assets\Network\NetworkController.cs" />
      <Compile Include="Assets\Network\NetworkManager.cs" />
+     <Compile Include="Assets\networkTest.cs" />
      <None Include="Assets\Sounds\License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
