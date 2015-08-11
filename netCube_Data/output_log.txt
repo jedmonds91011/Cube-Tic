@@ -18,123 +18,45 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.193 seconds
-desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
+- Completed reload, in  0.175 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
-<RI> Initialized touch support.
-Initialize engine version: 5.1.1f1 (2046fc06d4d8)
-GfxDevice: creating device client; threaded=1
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
-    Vendor:   Intel
-    VRAM:     896 MB
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.dll into Unity Child Domain
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1f10 -> priority: 1 
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.073 seconds
 desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
-<RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
-<RI> Input initialized.
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.608842 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 200.
-Total: 0.234012 ms (FindLiveObjects: 0.021348 ms CreateObjectMapping: 0.013548 ms MarkObjects: 0.191315 ms  DeleteObjects: 0.006979 ms)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.422864 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 200.
-Total: 0.251255 ms (FindLiveObjects: 0.020116 ms CreateObjectMapping: 0.013548 ms MarkObjects: 0.207737 ms  DeleteObjects: 0.009032 ms)
-
-Initialize engine version: 5.1.1f1 (2046fc06d4d8)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
-    Vendor:   Intel
-    VRAM:     896 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.058 seconds
-desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
-<RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
-<RI> Input initialized.
-<RI> Initialized touch support.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 25ac -> priority: 1 
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2fc4 -> priority: 1 
+  Thread -> id: 11a8 -> priority: 1 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.761976 ms
-UnloadTime: 0.485267 ms
+UnloadTime: 4.576788 ms
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2371.
-Total: 1.473456 ms (FindLiveObjects: 0.221695 ms CreateObjectMapping: 0.057476 ms MarkObjects: 1.149123 ms  DeleteObjects: 0.044339 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2438.
+Total: 1.851981 ms (FindLiveObjects: 0.142870 ms CreateObjectMapping: 0.027096 ms MarkObjects: 1.634391 ms  DeleteObjects: 0.046391 ms)
 
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2371.
-Total: 0.913468 ms (FindLiveObjects: 0.206094 ms CreateObjectMapping: 0.038591 ms MarkObjects: 0.633475 ms  DeleteObjects: 0.034896 ms)
-
-Trying to send command for non-local player.
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Trying to send command for non-local player.
+0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Trying to send command for non-local player.
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Trying to send command for non-local player.
+0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Trying to send command for non-local player.
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
