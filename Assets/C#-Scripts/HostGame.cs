@@ -6,13 +6,14 @@ using System.Collections.Generic;
 
 public class HostGame : MonoBehaviour
 {
-	List<MatchDesc> matchList = new List<MatchDesc>();
+	public List<MatchDesc> matchList; 
 	bool matchCreated;
 	NetworkMatch networkMatch;
 	
 	void Awake()
 	{
 		networkMatch = gameObject.AddComponent<NetworkMatch>();
+		matchList = new List<MatchDesc>();
 	}
 	
 	void OnGUI()

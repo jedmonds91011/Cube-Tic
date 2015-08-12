@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
 	public int endFaceIndex;
 	public Vector3 endCubeVector;
 
+	public Text serverText;
+
 	public List<NetworkInstanceId> networkIds;
 	public List<networkTest> players;
 	//public Vector3[] endCube = new Vector3[9];
@@ -215,6 +217,9 @@ public class GameManager : MonoBehaviour {
 
 	public void ChangePlayer()
 	{
+		if (currentPlayer == 1) {
+			GameManager.instance.players [1].enabled = false;
+		}
 		currentPlayer++;
 		if(currentPlayer > 1)
 		{
@@ -227,6 +232,7 @@ public class GameManager : MonoBehaviour {
 			PanelXPlayer.SetActive(false);
 			PanelOPlayer.SetActive(true);
 		}
+	
 	}
 	void UpdateX(int cbx)
 	{
@@ -445,6 +451,7 @@ public class GameManager : MonoBehaviour {
 	public void playSquare(GameObject square)
 	{
 		FindObjectOfType<networkTest> ().CmdPlayPiece (square);
+		//players [currentPlayer].CmdPlayPiece (square);
 	}
 	public void GoAheadAndPlayPiece(GameObject square)
 	{

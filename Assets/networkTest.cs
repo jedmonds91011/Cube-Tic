@@ -15,6 +15,7 @@ public class networkTest : NetworkBehaviour
 			return;
 		GameManager.instance.networkIds.Add (this.netId);
 		GameManager.instance.players.Add (this);
+		GameManager.instance.serverText.text = this.netId.ToString ();
 	}
 
 	[Command]
@@ -22,9 +23,12 @@ public class networkTest : NetworkBehaviour
 	{
 
 		//GameManager.instance.SpinCube ();
-		if (!isServer)
+		GameManager.instance.serverText.text = this.GetComponent<NetworkIdentity>().netId + " You are not the active player...";
+		if (!isClient) {
+			GameManager.instance.serverText.text = " this is the server.. shame";
 			return;
-		if (this.netId == GameManager.instance.networkIds [GameManager.instance.currentPlayer]) {
+		}
+		else if (this.GetComponent<NetworkIdentity>().netId == GameManager.instance.networkIds [GameManager.instance.currentPlayer]) {
 			setSpinParameters ();
 			spin ();
 			if(!isLocalPlayer)
@@ -32,6 +36,7 @@ public class networkTest : NetworkBehaviour
 			GameManager.instance.SpinCube();
 		} else {
 			Debug.LogError("You are not active player... netID: "+this.netId + " vs. GM NetworkID: " + GameManager.instance.networkIds [GameManager.instance.currentPlayer]);
+			GameManager.instance.serverText.text = this.GetComponent<NetworkIdentity>().netId + " You are not the active player...";
 		}
 		//GameManager.instance.SpinCube ();
 	}
