@@ -105,28 +105,29 @@ public class GameManager : NetworkBehaviour{
 
 	public void SpinButton ()
 	{	
-
-		if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
+		if(!cubeSpinning && !gameIsOver)
 		{
-			Debug.LogError ("Not localPlayers turn " + currentPlayer + " vs " + players[currentPlayer].myIndex);
-
-		}
-		else if (!players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex == currentPlayer)
-		{
-			getEndCubeFace();
-			foreach(networkTest player in players)
+//			if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
+//			{
+//
+//			}
+			if (!players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex == currentPlayer)
 			{
-				if(player.isLocalPlayer)
+				getEndCubeFace();
+				foreach(networkTest player in players)
 				{
-					player.CmdSpinCube();
-					Debug.LogError ("My turn! " + currentPlayer + " vs " + players[currentPlayer].myIndex);
-					break;
+					if(player.isLocalPlayer)
+					{
+						player.CmdSpinCube();
+						Debug.LogError ("My turn! " + currentPlayer + " vs " + players[currentPlayer].myIndex);
+						break;
+					}
 				}
 			}
-		}
-		else
-		{
-			players[currentPlayer].CmdSpinCube();
+			else
+			{
+				players[currentPlayer].CmdSpinCube();
+			}
 		}
 		
 //		if(!gameIsOver)
@@ -481,8 +482,6 @@ public class GameManager : NetworkBehaviour{
 
 	public void playSquare(GameObject square)
 	{
-		//players [currentPlayer].CmdPlayPiece (square);
-		
 		if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
 		{
 			Debug.LogError ("Not localPlayers turn " + currentPlayer + " vs " + players[currentPlayer].myIndex);
@@ -506,6 +505,10 @@ public class GameManager : NetworkBehaviour{
 		}
 	}
 
+	public void BackToLobby()
+	{
+		NetworkLobbyManager.singleton.StopHost ();
+	}
 	//////////////////////////////////////////////////////////
 	/// Begin Networking test
 	/// 

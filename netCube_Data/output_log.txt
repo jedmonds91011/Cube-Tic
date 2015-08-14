@@ -18,7 +18,7 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.164 seconds
+- Completed reload, in  0.190 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
@@ -29,7 +29,7 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 18fc -> priority: 1 
+  Thread -> id: 1368 -> priority: 1 
 Initialize engine version: 5.1.1f1 (2046fc06d4d8)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -50,32 +50,50 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.051 seconds
+- Completed reload, in  0.055 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
 <RI> Initialized touch support.
+MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000006A6,nodeId:0x084C,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1a00 -> priority: 1 
-UUlnadong 2 Unused Serialized files (Serializalized f noes now loaded:
- 0)
-UnloadTime: 0.581746 ms
-UnloadTime: 0.415885 ms
+  Thread -> id: e50 -> priority: 1 
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.JoinMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000006A6,nodeId:0x084D,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.715996 ms
 NullReferenceException: Object reference not set to an instance of an object
   at SpinIt.Awake () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SpinIt.Awake () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 NullReferenceException: Object reference not set to an instance of an object
   at networkTest.Start () [0x00000] in <filename unknown>:0 
  
@@ -88,13 +106,15 @@ Parameter name: index
  
 (Filename:  Line: -1)
 
+UnloadTime: 0.480341 ms
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2434.
-Total: 1.302669 ms (FindLiveObjects: 0.186799 ms CreateObjectMapping: 0.042697 ms MarkObjects: 1.034992 ms  DeleteObjects: 0.037359 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded ObjecNs nowllReferen
+ToeExcepti7on: 6Object nreferenjce not0.193368 n ms CrnceateOan jebctMap
+ping: pi.04557Awake ()ar[0x00e0ts:  in <fi21 ms  DeleteObjects:
+ 
+(.041054 ms)
 
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2438.
-Total: 1.030065 ms (FindLiveObjects: 0.197473 ms CreateObjectMapping: 0.036538 ms MarkObjects: 0.765262 ms  DeleteObjects: 0.029970 ms)
+ine: -1)
 
 ArgumentOutOfRangeException: Argument is out of range.
 Parameter name: index
@@ -103,52 +123,190 @@ Parameter name: index
  
 (Filename:  Line: -1)
 
-My turn! 0 vs 0
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2438.
+Total: 0.944671 ms (FindLiveObjects: 0.146565 ms CreateObjectMapping: 0.039002 ms MarkObjects: 0.729544 ms  DeleteObjects: 0.029148 ms)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Channels not initialized sending on id '0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-RPC being called
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.179887 ms
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 225.
+Total: 0.584210 ms (FindLiveObjects: 0.018474 ms CreateObjectMapping: 0.015190 ms MarkObjects: 0.502511 ms  DeleteObjects: 0.047623 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.777550 ms
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 225.
+Total: 0.526322 ms (FindLiveObjects: 0.020527 ms CreateObjectMapping: 0.015190 ms MarkObjects: 0.448318 ms  DeleteObjects: 0.041875 ms)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-My turn! 0 vs 0
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-RPC being called
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-My turn! 0 vs 0
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-RPC being called
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-My turn! 0 vs 0
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.472541 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 225.
+Total: 0.527965 ms (FindLiveObjects: 0.016832 ms CreateObjectMapping: 0.013548 ms MarkObjects: 0.488963 ms  DeleteObjects: 0.008210 ms)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Trying to send command for non-local player.
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-RPC being called
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-My turn! 0 vs 0
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-RPC being called
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-My turn! 0 vs 0
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:57080}
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Log: cannot connect after 10 attempt address {::ffff:127.0.0.1:7777}
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+System.FormatException: FAILURE Returned from server: Failed CreateMatch for appId=207851
+  at UnityEngine.Networking.Match.Response.Parse (System.Object obj) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.Match.CreateMatchResponse.Parse (System.Object obj) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.Match.NetworkMatch+<ProcessMatchResponse>c__Iterator0`1[UnityEngine.Networking.Match.CreateMatchResponse].MoveNext () [0x00000] in <filename unknown>:0 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:False-extendedInfo:Failed CreateMatch for appId=207851]-address:,port:0,networkId:0x0000000000000000,nodeId:0x0000,usingRelay:False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Create Failed:[[UnityEngine.Networking.Match.CreateMatchResponse]-success:False-extendedInfo:Failed CreateMatch for appId=207851]-address:,port:0,networkId:0x0000000000000000,nodeId:0x0000,usingRelay:False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+System.FormatException: FAILURE Returned from server: Failed CreateMatch for appId=207851
+  at UnityEngine.Networking.Match.Response.Parse (System.Object obj) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.Match.CreateMatchResponse.Parse (System.Object obj) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.Match.NetworkMatch+<ProcessMatchResponse>c__Iterator0`1[UnityEngine.Networking.Match.CreateMatchResponse].MoveNext () [0x00000] in <filename unknown>:0 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:False-extendedInfo:Failed CreateMatch for appId=207851]-address:,port:0,networkId:0x0000000000000000,nodeId:0x0000,usingRelay:False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Create Failed:[[UnityEngine.Networking.Match.CreateMatchResponse]-success:False-extendedInfo:Failed CreateMatch for appId=207851]-address:,port:0,networkId:0x0000000000000000,nodeId:0x0000,usingRelay:False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+

@@ -41,10 +41,11 @@ public class TouchManager : MonoBehaviour, IPointerDownHandler {
 				float touchDelta = Mathf.Abs(touchEnd.x - touchStart.x)+ Mathf.Abs (touchEnd.y - touchStart.y);
 				if(touchDelta > 75)
 				{
-					timeDifference = Time.time - timeDifference;
-					GameManager.instance.cubeSpinSpeed = Mathf.Clamp ((75 - (timeDifference * 100)),40,60);
-					GameManager.instance.numCubeSpins = Mathf.Clamp (Mathf.RoundToInt(GameManager.instance.cubeSpinSpeed-45),5,25);
-					GameManager.instance.SpinCube();
+					GameManager.instance.SpinButton();
+//					timeDifference = Time.time - timeDifference;
+//					GameManager.instance.cubeSpinSpeed = Mathf.Clamp ((75 - (timeDifference * 100)),40,60);
+//					GameManager.instance.numCubeSpins = Mathf.Clamp (Mathf.RoundToInt(GameManager.instance.cubeSpinSpeed-45),5,25);
+//					GameManager.instance.SpinCube();
 				}
 				GameManager.instance.resetButton.interactable = true;
 				GameManager.instance.endGameButton.interactable = true;

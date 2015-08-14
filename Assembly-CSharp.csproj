@@ -53,6 +53,7 @@
      <Compile Include="Assets\C#-Scripts\TouchManager.cs" />
      <Compile Include="Assets\Network\NetworkController.cs" />
      <Compile Include="Assets\Network\NetworkManager.cs" />
+     <Compile Include="Assets\SetAppId.cs" />
      <Compile Include="Assets\networkTest.cs" />
      <None Include="Assets\Sounds\License.txt" />
  <Reference Include="UnityEngine.UI">
