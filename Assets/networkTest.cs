@@ -4,47 +4,52 @@ using UnityEngine.UI;
 
 public class networkTest : NetworkBehaviour
 {
-	public GameObject spinButton;
+	public Button spinButton;
+	public bool myTurn;
+	public int myIndex;
+	public string myTextBase;
+	public int myId; 
+
 	void Start()
 	{
-		//spinButton = (Button)GameObject.FindGameObjectWithTag ("SpinButton").GetComponent<Button>();
-		spinButton.GetComponent<Button>().onClick.AddListener (() => {
-			CmdSpinCube ();
-		});
-		if (!isClient)
-			return;
-		GameManager.instance.networkIds.Add (this.netId);
+
 		GameManager.instance.players.Add (this);
-		GameManager.instance.serverText.text = this.netId.ToString ();
+//		spinButton = (Button)GameObject.FindGameObjectWithTag ("SpinButton").GetComponent<Button>();
+//		if (!isClient)
+//			return;
+		myIndex = GameManager.instance.networkIds.Count;
+		myTextBase = "Player " + myIndex + ": " + this.netId.ToString();
+		GameManager.instance.networkIds.Add (this.netId);
+		GameManager.instance.serverTexts [myIndex].text = myTextBase;
+		GameManager.instance.players.Add (this);
+
+		int.TryParse (this.netId.ToString (), out myId);
 	}
 
 	[Command]
 	public void CmdSpinCube()
 	{
-
-		//GameManager.instance.SpinCube ();
-		GameManager.instance.serverText.text = this.GetComponent<NetworkIdentity>().netId + " You are not the active player...";
-		if (!isClient) {
-			GameManager.instance.serverText.text = " this is the server.. shame";
+		if (!isServer)
 			return;
-		}
-		else if (this.GetComponent<NetworkIdentity>().netId == GameManager.instance.networkIds [GameManager.instance.currentPlayer]) {
-			setSpinParameters ();
-			spin ();
-			if(!isLocalPlayer)
-				return;
-			GameManager.instance.SpinCube();
-		} else {
-			Debug.LogError("You are not active player... netID: "+this.netId + " vs. GM NetworkID: " + GameManager.instance.networkIds [GameManager.instance.currentPlayer]);
-			GameManager.instance.serverText.text = this.GetComponent<NetworkIdentity>().netId + " You are not the active player...";
-		}
-		//GameManager.instance.SpinCube ();
+		setSpinParameters ();
+		spin ();
+//		if (!isLocalPlayer)
+//			return;
+//		GameManager.instance.SpinCube();
+
 	}
 
 	void Update()
 	{
-		if (!isClient)
-			return;
+//		if (!isClient)
+//			return;
+		if (this == GameManager.instance.players [GameManager.instance.currentPlayer]) {
+			myTurn = true;
+		} else {
+			myTurn = false;
+		}
+
+		GameManager.instance.serverTexts [myIndex].text = this.myTextBase + ": " + myTurn + ": " + GameManager.instance.currentPlayer;
 
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
@@ -56,7 +61,6 @@ public class networkTest : NetworkBehaviour
 	{
 		if (!isClient)
 			return;
-
 		setSpinFace (index);
 		GameManager.instance.SpinCube ();
 
@@ -64,8 +68,8 @@ public class networkTest : NetworkBehaviour
 
 	public void spin()
 	{
-		if (!isServer)
-			return;
+//		if (!isServer)
+//			return;
 		Debug.LogError ("RPC being called");
 		RpcSpin (GameManager.instance.endCubeVector);
 	}
@@ -96,7 +100,27 @@ public class networkTest : NetworkBehaviour
 	[ClientRpc]
 	public void RpcdisablePiece(GameObject piece)
 	{
+
 		GameManager.instance.playGamePiece (piece);
+		myTurn = !myTurn;
+	}
+
+	public void updateMyServerText(string msg)
+	{
+		GameManager.instance.serverTexts [this.myIndex].text = myTextBase + ": " + msg;
+	}
+
+	public void GoAheadNSpinIt()
+	{
+		//if (GameManager.instance.networkIds [GameManager.instance.currentPlayer] == this.netId) {
+			Debug.LogError ("spinning");
+			CmdSpinCube();
+			//this.CmdSpinCube();
+//		}
+//		else
+//		{
+//			Debug.LogError ("NetId mismatch");
+//		}
 	}
 
 

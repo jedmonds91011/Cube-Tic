@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AspectForcer.cs" />
      <Compile Include="Assets\C#-Scripts\ClickSquare.cs" />
      <Compile Include="Assets\C#-Scripts\GameManager.cs" />
      <Compile Include="Assets\C#-Scripts\HostGame.cs" />

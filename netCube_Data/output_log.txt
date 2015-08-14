@@ -18,7 +18,7 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.152 seconds
+- Completed reload, in  0.055 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
@@ -44,117 +44,441 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.050 seconds
+- Completed reload, in  0.057 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
 <RI> Initialized touch support.
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: d2c -> priority: 1 
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 218c -> priority: 1 
+  Thread -> id: 11d8 -> priority: 1 
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\netCube_Data\Managed\Boo.Lang.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 678 -> priority: 1 
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000003BE,nodeId:0x04F6,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.JoinMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000003BE,nodeId:0x04F7,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.707374 ms
-UnloadTime: 0.624853 ms
+UnloadTime: 0.850245 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at SpinIt.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2441.
-Total: 2.219011 ms (FindLiveObjects: 0.220874 ms CreateObjectMapping: 1.191410 ms MarkObjects: 0.775525 ms  DeleteObjects: 0.030380 ms)
+NullReferenceException: Object reference not set to an instance of an object
+  at networkTest.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2440.
+Total: 1.110122 ms (FindLiveObjects: 0.190904 ms CreateObjectMapping: 0.034486 ms MarkObjects: 0.847371 ms  DeleteObjects: 0.037359 ms)
+
+UnloadTime: 0.781273 ms
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SpinIt.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2446.
-Total: 1.094520 ms (FindLiveObjects: 0.280814 ms CreateObjectMapping: 0.034896 ms MarkObjects: 0.745144 ms  DeleteObjects: 0.032433 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2436.
+Total: 1.605654 ms (FindLiveObjects: 0.234012 ms CreateObjectMapping: 0.051729 ms MarkObjects: 1.160620 ms  DeleteObjects: 0.157239 ms)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-0
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+My turn! 0 vs 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-1
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Trying to send command for non-local player.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 

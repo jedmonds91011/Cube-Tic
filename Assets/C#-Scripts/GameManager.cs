@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : NetworkBehaviour{
 	public static GameManager instance;
 	public AudioSource source;
 	public AudioSource backgroundMusic;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
 	public int endFaceIndex;
 	public Vector3 endCubeVector;
 
-	public Text serverText;
+	public List<Text> serverTexts;
 
 	public List<NetworkInstanceId> networkIds;
 	public List<networkTest> players;
@@ -51,7 +51,17 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
-		instance = this;
+		if(instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			if(this != instance)
+			{
+				Destroy (this.gameObject);
+			}
+		}
 		backgroundMusic.Play ();
 		source = GetComponent<AudioSource> ();
 		gameIsOver = false;
@@ -83,6 +93,8 @@ public class GameManager : MonoBehaviour {
 		cubeSpinSpeed = 50;
 
 
+
+
 //		foreach(networkTest nTest in FindObjectsOfType<networkTest>())
 //		{
 //			networkIds.Add (nTest.GetComponent<NetworkIdentity>().sceneId);
@@ -93,9 +105,30 @@ public class GameManager : MonoBehaviour {
 
 	public void SpinButton ()
 	{	
-		players [currentPlayer].CmdSpinCube ();
-		Debug.Log (currentPlayer);
-		//FindObjectOfType<networkTest> ().CmdSpinCube ();
+
+		if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
+		{
+			Debug.LogError ("Not localPlayers turn " + currentPlayer + " vs " + players[currentPlayer].myIndex);
+
+		}
+		else if (!players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex == currentPlayer)
+		{
+			getEndCubeFace();
+			foreach(networkTest player in players)
+			{
+				if(player.isLocalPlayer)
+				{
+					player.CmdSpinCube();
+					Debug.LogError ("My turn! " + currentPlayer + " vs " + players[currentPlayer].myIndex);
+					break;
+				}
+			}
+		}
+		else
+		{
+			players[currentPlayer].CmdSpinCube();
+		}
+		
 //		if(!gameIsOver)
 //		{
 //			if (!hasBeenSpun)
@@ -217,9 +250,7 @@ public class GameManager : MonoBehaviour {
 
 	public void ChangePlayer()
 	{
-		if (currentPlayer == 1) {
-			GameManager.instance.players [1].enabled = false;
-		}
+
 		currentPlayer++;
 		if(currentPlayer > 1)
 		{
@@ -450,12 +481,29 @@ public class GameManager : MonoBehaviour {
 
 	public void playSquare(GameObject square)
 	{
-		FindObjectOfType<networkTest> ().CmdPlayPiece (square);
 		//players [currentPlayer].CmdPlayPiece (square);
-	}
-	public void GoAheadAndPlayPiece(GameObject square)
-	{
-		FindObjectOfType<networkTest> ().RpcdisablePiece (square);
+		
+		if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
+		{
+			Debug.LogError ("Not localPlayers turn " + currentPlayer + " vs " + players[currentPlayer].myIndex);
+			
+		}
+		else if (!players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex == currentPlayer)
+		{
+			foreach(networkTest player in players)
+			{
+				if(player.isLocalPlayer)
+				{
+					player.CmdPlayPiece(square);
+					Debug.LogError ("My turn! " + currentPlayer + " vs " + players[currentPlayer].myIndex);
+					break;
+				}
+			}
+		}
+		else
+		{
+			players[currentPlayer].CmdPlayPiece(square);
+		}
 	}
 
 	//////////////////////////////////////////////////////////
