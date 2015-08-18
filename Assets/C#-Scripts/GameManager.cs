@@ -119,7 +119,6 @@ public class GameManager : NetworkBehaviour{
 					if(player.isLocalPlayer)
 					{
 						player.CmdSpinCube();
-						Debug.LogError ("My turn! " + currentPlayer + " vs " + players[currentPlayer].myIndex);
 						break;
 					}
 				}

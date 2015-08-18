@@ -29,8 +29,8 @@ public class networkTest : NetworkBehaviour
 	[Command]
 	public void CmdSpinCube()
 	{
-		if (!isServer)
-			return;
+//		if (!isServer)
+//			return;
 		setSpinParameters ();
 		spin ();
 //		if (!isLocalPlayer)
@@ -68,8 +68,8 @@ public class networkTest : NetworkBehaviour
 
 	public void spin()
 	{
-//		if (!isServer)
-//			return;
+		if (!isServer)
+			return;
 		Debug.LogError ("RPC being called");
 		RpcSpin (GameManager.instance.endCubeVector);
 	}
