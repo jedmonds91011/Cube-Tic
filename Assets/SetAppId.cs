@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
+using UnityEngine.Networking.Match;
 
 public class SetAppId : MonoBehaviour {
 	bool setNM = false;
@@ -14,4 +16,5 @@ public class SetAppId : MonoBehaviour {
 			setNM = true;
 		}
 	}
+	
 }
