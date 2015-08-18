@@ -30,7 +30,7 @@ public class PlayerLobby : NetworkLobbyPlayer
 		}
 
 		var hooks = playerCanvas.GetComponent<PlayerCanvasHooks>();
-		hooks.panelPos.localPosition = new Vector3(0, GetPlayerPos(lobbyPlayer.slot)-122f, 0);
+		hooks.panelPos.anchoredPosition = new Vector3(0, GetPlayerPos(lobbyPlayer.slot), 0);
 		hooks.SetColor(cc.myColor);
 		hooks.SetReady(lobbyPlayer.readyToBegin);
 
@@ -57,14 +57,14 @@ public class PlayerLobby : NetworkLobbyPlayer
 		if (lobby == null)
 		{
 			// no lobby?
-			return slot * 200;
+			return slot * 50;
 		}
 
 		// this spreads the player canvas panels out across the screen
-		var screenWidth = playerCanvas.pixelRect.width;
-		screenWidth -= 200; // border padding
-		var playerWidth = screenWidth / (lobby.maxPlayers-1);
-		return -(screenWidth / 2) + slot * playerWidth;
+		var screenHeight = Screen.height;//.pixelRect.height;
+		//screenHeight -= 200; // border padding
+		var playerHeight = playerCanvas.pixelRect.height;//screenHeight / (lobby.maxPlayers-1);
+		return -(screenHeight/2) + (playerHeight * slot) - 50;
 	}
 
 	public override void OnStartLocalPlayer()
@@ -77,7 +77,7 @@ public class PlayerLobby : NetworkLobbyPlayer
 
 		// setup button hooks
 		var hooks = playerCanvas.GetComponent<PlayerCanvasHooks>();
-		hooks.panelPos.localPosition = new Vector3(GetPlayerPos(lobbyPlayer.slot), 0, 0);
+		hooks.panelPos.anchoredPosition = new Vector3(0, GetPlayerPos(lobbyPlayer.slot), 0);
 		hooks.SetColor(cc.myColor);
 
 		hooks.OnColorChangeHook = OnGUIColorChange;

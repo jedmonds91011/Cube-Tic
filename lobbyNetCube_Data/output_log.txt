@@ -18,7 +18,33 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Man
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.197 seconds
+- Completed reload, in  0.179 seconds
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
+<RI> Initialized touch support.
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     896 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.065 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
@@ -29,12 +55,225 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Man
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 13d4 -> priority: 1 
+  Thread -> id: 998 -> priority: 1 
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Boo.Lang.dll (this message is harmless)
 MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x0010000000000B1F,nodeId:0x0DAF,usingRelay:True
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: ee8 -> priority: 1 
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x0010000000000C4F,nodeId:0x0EE7,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+JSON Response: [[UnityEngine.Networking.Match.JoinMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x0010000000000C4F,nodeId:0x0EE8,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.767286 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at SpinIt.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+UnloadTime: 3.894461 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at networkTest.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SpinIt.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 2791.
+Total: 1.774800 ms (FindLiveObjects: 0.217180 ms CreateObjectMapping: 0.122343 ms MarkObjects: 1.391758 ms  DeleteObjects: 0.041875 ms)
+
+
+Unloading 6 unused AssAts tr rueentOutOfRorangeagec.p iLno Argumebjet tss now: 278f.
+ rangel: 
+Pa2amet1er nasm(F:indLive
+Objects: em.Colle7 ts CreateObjectMapping: twork5040 ms MarkObjects: 2 inde91) ms  DeleteObjects: name 7770 ms)
+
+0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[networkTest].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at networkTest.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Trying to send command for non-local player.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+RPC being called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+My turn! 0 vs 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.263352 ms
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 651.
+Total: 0.986547 ms (FindLiveObjects: 0.036538 ms CreateObjectMapping: 0.054602 ms MarkObjects: 0.849013 ms  DeleteObjects: 0.045570 ms)
+
+Channels not initialized sending on id '0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.418540 ms
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 651.
+Total: 1.023086 ms (FindLiveObjects: 0.042697 ms CreateObjectMapping: 0.052550 ms MarkObjects: 0.887605 ms  DeleteObjects: 0.039412 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MatchMakerCanvasControl.OnGUICreateMatchMakerGame () [0x00000] in <filename unknown>:0 
+  at MatchMakerHooks.UICreateGame () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.Debug:Internal_LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MatchMakerCanvasControl.OnGUIJoinMatchMakerGame () [0x00000] in <filename unknown>:0 
+  at MatchMakerHooks.UIJoinGame () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.Debug:Internal_LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
 
