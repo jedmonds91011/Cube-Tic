@@ -70,7 +70,6 @@ public class networkTest : NetworkBehaviour
 	{
 		if (!isServer)
 			return;
-		Debug.LogError ("RPC being called");
 		RpcSpin (GameManager.instance.endCubeVector);
 	}
 
