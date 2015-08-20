@@ -101,7 +101,6 @@ public class OnlineCanvasControl : CanvasControl
 	{
 		GuiLobbyManager.s_Singleton.popupCanvas.Hide();
 		GuiLobbyManager.s_Singleton.StopHost();
-		//GuiLobbyManager.s_Singleton.matchMaker.DestroyMatch
 		GuiLobbyManager.s_Singleton.matchMakerCanvas.Show ();
 	}
 }
@@ -207,6 +206,7 @@ public class MatchMakerCanvasControl : CanvasControl
 	
 	public void OnGUICreateMatchMakerGame()
 	{
+		Debug.LogError ("I am in OnGUICreateMatchMakerGame()");
 		var hooks = canvas.GetComponent<MatchMakerHooks>();
 		if (hooks == null)
 		{
@@ -232,7 +232,7 @@ public class MatchMakerCanvasControl : CanvasControl
 	public void OnGUIJoinMatchMakerGame()
 	{
 		Hide();
-
+		//Debug.LogError ("I am in OnGUIJoinMatchMakerGame()");
 		GuiLobbyManager.s_Singleton.matchMaker.ListMatches(0, 6, "", OnGUIMatchList);
 
 		var host = GuiLobbyManager.s_Singleton.matchMaker.baseUri.ToString();
@@ -242,21 +242,31 @@ public class MatchMakerCanvasControl : CanvasControl
 	void OnGUIMatchList(ListMatchResponse matchList)
 	{
 		GuiLobbyManager.s_Singleton.connectingCanvas.Hide();
+		for(int i = 0; i < matchList.matches.Count; i++)
+		{
+			if(matchList.matches[i].currentSize > 0 && matchList.matches[i].currentSize < matchList.matches[i].maxSize)
+			{
+				GuiLobbyManager.s_Singleton.matchMaker.JoinMatch(matchList.matches[i].networkId, "", GuiLobbyManager.s_Singleton.OnMatchJoined);
+				return;
+			}
 
-		if (matchList.success)
-		{
-			GuiLobbyManager.s_Singleton.joinMatchCanvas.Show(matchList);
 		}
-		else if (matchList.matches.Count == 0)
-		{
-			Debug.LogWarning("No Matched found.");
-			Show();
-		}
-		else
-		{
-			Debug.LogError("Error finding matches");
-			Show();
-		}
+		string name = "" + UnityEngine.Random.Range (0, 1024);
+		GuiLobbyManager.s_Singleton.matchMaker.CreateMatch (name, 2, true, "", GuiLobbyManager.s_Singleton.OnMatchCreate);
+//		if (matchList.success)
+//		{
+//			GuiLobbyManager.s_Singleton.joinMatchCanvas.Show(matchList);
+//		}
+//		else if (matchList.matches.Count == 0)
+//		{
+//			Debug.LogWarning("No Matched found.");
+//			Show();
+//		}
+//		else
+//		{
+//			Debug.LogError("Error finding matches");
+//			Show();
+//		}
 	}
 
 	public void OnGUIExitMatchMaker()

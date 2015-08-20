@@ -42,7 +42,6 @@ public class GameManager : NetworkBehaviour{
 	public int endFaceIndex;
 	public Vector3 endCubeVector;
 
-	public List<Text> serverTexts;
 
 	public List<NetworkInstanceId> networkIds;
 	public List<networkTest> players;
@@ -506,7 +505,10 @@ public class GameManager : NetworkBehaviour{
 
 	public void BackToLobby()
 	{
-		NetworkLobbyManager.singleton.StopHost ();
+		GuiLobbyManager.s_Singleton.ServerReturnToLobby ();
+		//GuiLobbyManager.s_Singleton.StopHost ();
+		GuiLobbyManager.s_Singleton.matchMakerCanvas.Show ();
+		//NetworkLobbyManager.singleton.StopHost ();
 	}
 	//////////////////////////////////////////////////////////
 	/// Begin Networking test

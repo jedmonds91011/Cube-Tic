@@ -9,6 +9,7 @@ public class networkTest : NetworkBehaviour
 	public int myIndex;
 	public string myTextBase;
 	public int myId; 
+	bool isHost;
 
 	void Start()
 	{
@@ -20,10 +21,11 @@ public class networkTest : NetworkBehaviour
 		myIndex = GameManager.instance.networkIds.Count;
 		myTextBase = "Player " + myIndex + ": " + this.netId.ToString();
 		GameManager.instance.networkIds.Add (this.netId);
-		GameManager.instance.serverTexts [myIndex].text = myTextBase;
 		GameManager.instance.players.Add (this);
 
 		int.TryParse (this.netId.ToString (), out myId);
+		if (isServer)
+			isHost = true;
 	}
 
 	[Command]
@@ -49,7 +51,6 @@ public class networkTest : NetworkBehaviour
 			myTurn = false;
 		}
 
-		GameManager.instance.serverTexts [myIndex].text = this.myTextBase + ": " + myTurn + ": " + GameManager.instance.currentPlayer;
 
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
@@ -104,15 +105,10 @@ public class networkTest : NetworkBehaviour
 		myTurn = !myTurn;
 	}
 
-	public void updateMyServerText(string msg)
-	{
-		GameManager.instance.serverTexts [this.myIndex].text = myTextBase + ": " + msg;
-	}
 
 	public void GoAheadNSpinIt()
 	{
 		//if (GameManager.instance.networkIds [GameManager.instance.currentPlayer] == this.netId) {
-			Debug.LogError ("spinning");
 			CmdSpinCube();
 			//this.CmdSpinCube();
 //		}
