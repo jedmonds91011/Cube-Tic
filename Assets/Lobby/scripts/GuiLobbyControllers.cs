@@ -172,7 +172,7 @@ public class ConnectingCanvasControl : CanvasControl
 		hooks.OnExitHook = OnGUICancelConnecting;
 
 		hooks.messagText.text = address;
-		EventSystem.current.SetSelectedGameObject(hooks.firstButton.gameObject);
+		//EventSystem.current.SetSelectedGameObject(hooks.firstButton.gameObject);
 	}
 
 	public void OnGUICancelConnecting()

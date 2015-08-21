@@ -505,9 +505,10 @@ public class GameManager : NetworkBehaviour{
 
 	public void BackToLobby()
 	{
-		GuiLobbyManager.s_Singleton.ServerReturnToLobby ();
-		//GuiLobbyManager.s_Singleton.StopHost ();
-		GuiLobbyManager.s_Singleton.matchMakerCanvas.Show ();
+//		GuiLobbyManager.s_Singleton.ServerReturnToLobby ();
+//		//GuiLobbyManager.s_Singleton.StopHost ();
+//		GuiLobbyManager.s_Singleton.matchMakerCanvas.Show ();
+		Application.Quit ();
 		//NetworkLobbyManager.singleton.StopHost ();
 	}
 	//////////////////////////////////////////////////////////

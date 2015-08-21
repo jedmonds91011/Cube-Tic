@@ -11,8 +11,6 @@ public class PlayerLobby : NetworkLobbyPlayer
 
 	public Canvas playerCanvas;
 
-	public int m_NetworkID;
-	public bool isHost;
 
 	// cached components
 	ColorControl cc;

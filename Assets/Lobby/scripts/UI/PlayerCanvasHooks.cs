@@ -46,7 +46,7 @@ public class PlayerCanvasHooks : MonoBehaviour
 	{
 		isLocalPlayer = true;
 		nameText.text = "YOU";
-		readyText.text = "Play";
+		readyText.text = "Click To Play!";
 		removeButton.gameObject.SetActive(true);
 	}
 
@@ -65,7 +65,7 @@ public class PlayerCanvasHooks : MonoBehaviour
 		{
 			if (isLocalPlayer)
 			{
-				readyText.text = "Play";
+				readyText.text = "Click to Play!";
 			}
 			else
 			{

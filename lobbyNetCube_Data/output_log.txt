@@ -18,33 +18,7 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Man
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.048 seconds
-<RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
-<RI> Input initialized.
-desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
-<RI> Initialized touch support.
-Initialize engine version: 5.1.1f1 (2046fc06d4d8)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
-    Vendor:   Intel
-    VRAM:     896 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.051 seconds
+- Completed reload, in  0.134 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
@@ -54,18 +28,16 @@ Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Man
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Boo.Lang.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2e74 -> priority: 1 
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Boo.Lang.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 421c -> priority: 1 
-I am in OnGUIJoinMatchMakerGame()
+HDR and MultisampleAntiAliasing (in Forward Rendering Path) is not supported. This camera will render without HDR buffers. Disable Antialiasing in the Quality settings if you want to use HDR.
+ 
+(Filename:  Line: 2716)
+
+Failed to read the ID for the match maker, please set the Cloud Project ID string in the Player Settings (see https://unet.cloud.unity3d.com).
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 23c0 -> priority: 1 
 MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
@@ -78,185 +50,7 @@ MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequ
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000000D1,nodeId:0x0117,usingRelay:True
+JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x0010000000000202,nodeId:0x02C0,usingRelay:True
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-I am in OnGUIJoinMatchMakerGame()
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Current match name is: 175
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Current match size is: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-JSON Response: [[UnityEngine.Networking.Match.JoinMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000000D1,nodeId:0x0118,usingRelay:True
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Channels not initialized sending on id '0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.297017 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 609.
-Total: 0.959861 ms (FindLiveObjects: 0.053781 ms CreateObjectMapping: 0.059940 ms MarkObjects: 0.835465 ms  DeleteObjects: 0.009853 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.915207 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 608.
-Total: 0.844908 ms (FindLiveObjects: 0.052139 ms CreateObjectMapping: 0.061171 ms MarkObjects: 0.720922 ms  DeleteObjects: 0.010263 ms)
-
-I am in OnGUIJoinMatchMakerGame()
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at MatchMakerCanvasControl.OnGUIJoinMatchMakerGame () [0x00000] in <filename unknown>:0 
-  at MatchMakerHooks.UIJoinGame () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
-  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
-  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
-  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
-  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
-UnityEngine.Debug:Internal_LogException(Exception, Object)
-UnityEngine.Debug:LogException(Exception)
-UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
-UnityEngine.EventSystems.StandaloneInputModule:Process()
-UnityEngine.EventSystems.EventSystem:Update()
- 
-(Filename:  Line: -1)
-
-I am in OnGUIJoinMatchMakerGame()
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-JSON Response: [[UnityEngine.Networking.Match.CreateMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000000D2,nodeId:0x011A,usingRelay:True
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.host id out of bound id {-1} max id should be greater 0 and less than {1}
- 
-(Filename:  Line: 578)
-
-Host doesn't exist
- 
-(Filename:  Line: 949)
-
-ListenRelay Error: 3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Initialize engine version: 5.1.1f1 (2046fc06d4d8)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
-    Vendor:   Intel
-    VRAM:     896 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.057 seconds
-<RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
-<RI> Input initialized.
-desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\System.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Josh\Documents\GitHub\Cube Tic\lobbyNetCube_Data\Managed\Boo.Lang.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 30ac -> priority: 1 
-I am in OnGUIJoinMatchMakerGame()
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Current match name is: 915
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Current match size is: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-JSON Response: [[UnityEngine.Networking.Match.JoinMatchResponse]-success:True-extendedInfo:]-address:52.1.161.160,port:9999,networkId:0x00100000000000D2,nodeId:0x011C,usingRelay:True
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Log: cannot connect after 10 attempt address {::ffff:52.1.161.160:9999}
-UNet Client Disconnect Error: Timeout
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.945684 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 638.
-Total: 0.759924 ms (FindLiveObjects: 0.050907 ms CreateObjectMapping: 0.047623 ms MarkObjects: 0.652361 ms  DeleteObjects: 0.008210 ms)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.516880 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 609.
-Total: 0.848192 ms (FindLiveObjects: 0.039823 ms CreateObjectMapping: 0.041054 ms MarkObjects: 0.757461 ms  DeleteObjects: 0.009442 ms)
 
