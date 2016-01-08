@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 
-public class GameManager : NetworkBehaviour{
+[RequireComponent(typeof (PhotonView))]
+public class GameManager : MonoBehaviour{
 	public static GameManager instance;
 	public AudioSource source;
 	public AudioSource backgroundMusic;
@@ -31,6 +31,10 @@ public class GameManager : NetworkBehaviour{
 	public Button resetButton;
 	public Button endGameButton;
 
+    public Image waitingCanvas;
+    public Text waitingText;
+    public float numDots;
+
 	public GameObject PanelXPlayer;
 	public GameObject PanelOPlayer;
 	private Vector3[] endVector = new Vector3[6];
@@ -43,32 +47,33 @@ public class GameManager : NetworkBehaviour{
 	public Vector3 endCubeVector;
 
 
-	public List<NetworkInstanceId> networkIds;
+	public List<int> networkIds;
 	public List<networkTest> players;
+
+    public bool networkMatch;
+    public bool gameReady;
+    public PhotonView photonView;
+
+
+
 	//public Vector3[] endCube = new Vector3[9];
 	
 	// Use this for initialization
 	void Awake()
 	{
-		if(instance == null)
-		{
-			instance = this;
-		}
-		else
-		{
-			if(this != instance)
-			{
-				Destroy (this.gameObject);
-			}
-		}
-		backgroundMusic.Play ();
+        gameReady = false;
+        networkMatch = true;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        backgroundMusic.Play ();
 		source = GetComponent<AudioSource> ();
 		gameIsOver = false;
 		if (Application.platform == RuntimePlatform.Android) {
 			spinButton.enabled= false;
 			spinButton.image.enabled = false;
 			spinButtonText.enabled = false;
-
 		}
 	}
 	void Start () 
@@ -90,83 +95,63 @@ public class GameManager : NetworkBehaviour{
 		for (var j = 100; j < 623; j++) aSquares[j] = 9;
 		numCubeSpins = 15;
 		cubeSpinSpeed = 50;
-
-
-
-
-//		foreach(networkTest nTest in FindObjectsOfType<networkTest>())
-//		{
-//			networkIds.Add (nTest.GetComponent<NetworkIdentity>().sceneId);
-//			players.Add (nTest);
-//		}
 	}
 
 
 	public void SpinButton ()
 	{	
-		if(!cubeSpinning && !gameIsOver)
+		if(!gameIsOver)
 		{
-//			if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
-//			{
-//
-//			}
-			if (!players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex == currentPlayer)
-			{
-				getEndCubeFace();
-				foreach(networkTest player in players)
-				{
-					if(player.isLocalPlayer)
-					{
-						player.CmdSpinCube();
-						break;
-					}
-				}
-			}
-			else
-			{
-				players[currentPlayer].CmdSpinCube();
-			}
+            if (!hasBeenSpun)
+            {
+                if (!cubeSpinning)
+                {
+                    if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+                    {
+                        getEndCubeFace();
+                        photonView.RPC("spinCubeRPC", PhotonTargets.AllBufferedViaServer, endCubeVector);
+                    }
+                    else
+                    {
+                        UpdateInfo("Sorry,it is not your turn!");
+                    }
+                }
+            }
+            else
+            {
+                if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+                {
+                    UpdateInfo("The cube has been spun, click a square to place your piece");
+                }
+                else
+                {
+                    UpdateInfo("Sorry, it's not your turn!");
+                }
+            }
 		}
-		
-//		if(!gameIsOver)
-//		{
-//			if (!hasBeenSpun)
-//			{
-//				SpinCube();
-//				//CmdSpinCube();
-//				//RpcSpin();
-//			}
-//			else
-//			{
-//				UpdateInfo("Sorry, already Spun! Now you gotta Click!");
-//			}
-//		}
-//		else
-//		{
-//			//UpdateInfo ("
-//			spinButton.interactable = false;
-//		}
+        else
+        {
+            spinButton.interactable = false;
+        }
 	}
-	
-	public void SpinCube()
+
+    [PunRPC]
+    public void spinCubeRPC(Vector3 target)
+    {
+        cubeSpinSpeed = 50;
+        instance.numCubeSpins = 15;
+        endCubeVector = target;
+        SpinCube();
+    }
+
+    public void SpinCube()
 	{
-		// clear any prev cube destination
-		//System.Array.Clear(endCube,0,endCube.Length);
 		cubeSpinning = true;
 		source.PlayOneShot (soundClips [0]);
-//		endCube.Clear();
-//		for (int i = 0; i < 6; i++)
-//		{	
-//			for (int j = 0; j < (9 - aSides[i]); j++)
-//			{
-//				endCube.Add(endVector[i]);
-//			}
-//		}
-		
 		StartCoroutine(CubeRotation());
 	}
-	
-	IEnumerator CubeRotation ()
+
+    IEnumerator CubeRotation ()
 	{
 		float elapsedTime = 0;
 		float time = 0.1f;
@@ -217,7 +202,6 @@ public class GameManager : NetworkBehaviour{
 				endCube.Add(endVector[i]);
 			}
 		}
-
 		endFaceIndex = Random.Range (0, endCube.Count);
 		endCubeVector = endCube [endFaceIndex];
 	}
@@ -249,7 +233,6 @@ public class GameManager : NetworkBehaviour{
 
 	public void ChangePlayer()
 	{
-
 		currentPlayer++;
 		if(currentPlayer > 1)
 		{
@@ -262,11 +245,10 @@ public class GameManager : NetworkBehaviour{
 			PanelXPlayer.SetActive(false);
 			PanelOPlayer.SetActive(true);
 		}
-	
 	}
+
 	void UpdateX(int cbx)
 	{
-		
 		source.PlayOneShot (soundClips [2]);
 		//xCount++;
 		xCount++;
@@ -274,6 +256,7 @@ public class GameManager : NetworkBehaviour{
 		wCombos[cbx] = 1;
 		UpdateXCount(xCount);
 	}
+
 	void UpdateO(int cbo)
 	{
 		
@@ -426,9 +409,6 @@ public class GameManager : NetworkBehaviour{
 		if ((aSquares[610] + aSquares[611] + aSquares[612] == 3) && (wCombos[67] == 0)) UpdateO(67);
 		if ((aSquares[620] + aSquares[621] + aSquares[622] == 3) && (wCombos[68] == 0)) UpdateO(68);
 		
-		//Debug.Log("Finished @ " + Time.time);
-		
-		
 		if (clickCount >= 54)
 		{
 			gameIsOver = true;
@@ -455,64 +435,88 @@ public class GameManager : NetworkBehaviour{
 		}
 	}
 
-	public void playGamePiece(GameObject piece)
-	{
-		ClickSquare pieceScript = piece.GetComponent<ClickSquare>();
-		if(!pieceScript.isUsed)
-		{
-			source.PlayOneShot(soundClips[4]);
-			pieceScript.myPieces [currentPlayer].SetActive (true);
-			pieceScript.isUsed = true;
-			int answer = (pieceScript.side * 100) + (pieceScript.x * 10) + (pieceScript.y * 1);
-			aSquares[answer] = currentPlayer;
-			clickCount++;
-			aSides[pieceScript.side-1]++;
-			hasBeenSpun = false;
-		}
-		CheckForWinner();
-		ChangePlayer();
-		if(!GameManager.instance.gameIsOver) 
-		{
-			GameManager.instance.UpdateInfo("Ok, " + GameManager.instance.playerName[GameManager.instance.currentPlayer] + " it's your turn to Spin");
-	
-		}
-	}
-
 	public void playSquare(GameObject square)
 	{
-		if(players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex != currentPlayer)
-		{
-			Debug.LogError ("Not localPlayers turn " + currentPlayer + " vs " + players[currentPlayer].myIndex);
-			
-		}
-		else if (!players[currentPlayer].isLocalPlayer && players[currentPlayer].myIndex == currentPlayer)
-		{
-			foreach(networkTest player in players)
-			{
-				if(player.isLocalPlayer)
-				{
-					player.CmdPlayPiece(square);
-					Debug.LogError ("My turn! " + currentPlayer + " vs " + players[currentPlayer].myIndex);
-					break;
-				}
-			}
-		}
-		else
-		{
-			players[currentPlayer].CmdPlayPiece(square);
-		}
-	}
+        if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+        {
+            photonView.RPC("playSquareRPC", PhotonTargets.AllBufferedViaServer, square.GetPhotonView().viewID);
+        }
+    }
+
+    [PunRPC]
+    public void playSquareRPC(int square)
+    {
+        ClickSquare pieceScript = PhotonView.Find(square).GetComponent<ClickSquare>(); //piece.GetComponent<ClickSquare>();
+        if (!pieceScript.isUsed)
+        {
+            source.PlayOneShot(soundClips[4]);
+            pieceScript.myPieces[currentPlayer].SetActive(true);
+            pieceScript.isUsed = true;
+            int answer = (pieceScript.side * 100) + (pieceScript.x * 10) + (pieceScript.y * 1);
+            aSquares[answer] = currentPlayer;
+            clickCount++;
+            aSides[pieceScript.side - 1]++;
+            hasBeenSpun = false;
+        }
+        CheckForWinner();
+        ChangePlayer();
+        if (!GameManager.instance.gameIsOver)
+        {
+            GameManager.instance.UpdateInfo("Ok, " + GameManager.instance.playerName[GameManager.instance.currentPlayer] + " it's your turn to Spin");
+        }
+    }
 
 	public void BackToLobby()
 	{
-//		GuiLobbyManager.s_Singleton.ServerReturnToLobby ();
-//		//GuiLobbyManager.s_Singleton.StopHost ();
-//		GuiLobbyManager.s_Singleton.matchMakerCanvas.Show ();
 		Application.Quit ();
-		//NetworkLobbyManager.singleton.StopHost ();
 	}
-	//////////////////////////////////////////////////////////
-	/// Begin Networking test
-	/// 
+
+    void Update()
+    {
+        if (!gameReady && networkMatch)
+        {
+            if (waitingCanvas != null && waitingText != null)
+            {
+                numDots += Time.deltaTime;
+                numDots %= 3.0f;
+                string waitText = "Waiting for other player";
+                for (int i = 0; i < numDots; i++)
+                {
+                    waitText += ".";
+                }
+                waitingText.text = waitText;
+            }
+        }
+    }
+
+    public void initMultiplayer()
+    {
+        StartCoroutine(initCoRoutine());
+    }
+
+    IEnumerator initCoRoutine()
+    {
+        waitingText.color = Color.white;
+        while (PhotonNetwork.playerList.Length < 2)
+        {
+            yield return 0;
+        }
+        Debug.LogError(PhotonNetwork.playerName + " has connected.");
+        PhotonNetwork.room.open = false;
+        photonView = GetComponent<PhotonView>();
+        waitingCanvas.enabled = false;
+        waitingText.enabled = false;
+        networkTest temp = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0).GetComponent<networkTest>();
+        photonView.RPC("initPlayer", PhotonTargets.AllBufferedViaServer,temp.myPhotonView.viewID);
+    }
+
+    [PunRPC]
+    public void initPlayer(int viewID)
+    {
+        networkTest temp = PhotonView.Find(viewID).GetComponent<networkTest>();
+        temp.myIndex = players.Count;
+        players.Add(temp);
+    }
+
 
 }
