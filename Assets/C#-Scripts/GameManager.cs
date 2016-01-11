@@ -3,55 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PhotonView))]
-public class GameManager : MonoBehaviour {
-    public static GameManager instance;
-    public AudioSource source;
-    public AudioSource backgroundMusic;
-    public int currentPlayer = 0;
-    public string[] playerObjName = new string[] { "X-obj", "O-obj" };
-    public string[] playerName = new string[] { "Scott", "Elliot" };
-    public bool gameIsOver = false;
-    public bool hasBeenSpun = false;
-    public bool cubeSpinning = false;
-    public bool usedMagicSquare = false;
-    public int clickCount;
-    public int xCount;
-    public int oCount;
-    public int[] aSquares = new int[700];
-    public int[] wCombos = new int[100];
-    public int[] aSides = new int[7];
-
-    public GameObject cube;
-    public Text iBox;
-    public Text xBox;
-    public Text oBox;
-    public Text cBox;
-    public Text spinButtonText;
-    public Button spinButton;
-    public Button resetButton;
-    public Button endGameButton;
-
-    public List<Button> magicCubeButtons;
+[RequireComponent(typeof (PhotonView))]
+public class GameManager : MonoBehaviour{
+	public static GameManager instance;
+	public AudioSource source;
+	public AudioSource backgroundMusic;
+	public int currentPlayer = 0;
+	public string[] playerObjName = new string[] {"X-obj", "O-obj"};
+	public string[] playerName = new string[] {"Scott", "Elliot"};
+	public bool gameIsOver = false;
+	public bool hasBeenSpun = false;
+	public bool cubeSpinning = false;
+	public int clickCount;
+	public int xCount;
+	public int oCount;
+	public int[] aSquares = new int[700];
+	public int[] wCombos = new int[100];
+	public int[] aSides = new int[7];
+	
+	public GameObject cube;
+	public Text iBox;
+	public Text xBox;
+	public Text oBox;
+	public Text cBox;
+	public Text spinButtonText;
+	public Button spinButton;
+	public Button resetButton;
+	public Button endGameButton;
 
     public Image waitingCanvas;
     public Text waitingText;
     public float numDots;
 
-    public GameObject PanelXPlayer;
-    public GameObject PanelOPlayer;
-    private Vector3[] endVector = new Vector3[6];
-    public List<Vector3> endCube = new List<Vector3>();
-    public List<AudioClip> soundClips = new List<AudioClip>();
+	public GameObject PanelXPlayer;
+	public GameObject PanelOPlayer;
+	private Vector3[] endVector = new Vector3[6];
+	public List<Vector3> endCube = new List<Vector3>();
+	public List<AudioClip> soundClips = new List<AudioClip> ();
 
-    public int numCubeSpins;
-    public float cubeSpinSpeed;
-    public int endFaceIndex;
-    public Vector3 endCubeVector;
+	public int numCubeSpins;
+	public float cubeSpinSpeed;
+	public int endFaceIndex;
+	public Vector3 endCubeVector;
 
 
-    public List<int> networkIds;
-    public List<networkTest> players;
+	public List<int> networkIds;
+	public List<networkTest> players;
 
     public bool networkMatch;
     public bool gameReady;
@@ -59,52 +56,52 @@ public class GameManager : MonoBehaviour {
 
 
 
-    //public Vector3[] endCube = new Vector3[9];
-
-    // Use this for initialization
-    void Awake()
-    {
+	//public Vector3[] endCube = new Vector3[9];
+	
+	// Use this for initialization
+	void Awake()
+	{
         gameReady = false;
         networkMatch = true;
         if (instance == null)
         {
             instance = this;
         }
-        backgroundMusic.Play();
-        source = GetComponent<AudioSource>();
-        gameIsOver = false;
-        if (Application.platform == RuntimePlatform.Android) {
-            spinButton.enabled = false;
-            spinButton.image.enabled = false;
-            spinButtonText.enabled = false;
-        }
-    }
-    void Start()
-    {
+        backgroundMusic.Play ();
+		source = GetComponent<AudioSource> ();
+		gameIsOver = false;
+		if (Application.platform == RuntimePlatform.Android) {
+			spinButton.enabled= false;
+			spinButton.image.enabled = false;
+			spinButtonText.enabled = false;
+		}
+	}
+	void Start () 
+	{
 
-        UpdateInfo("Player " + playerName[currentPlayer] + " begins the game, Give it a good Spin!");
+		UpdateInfo("Player " + playerName[currentPlayer] + " begins the game, Give it a good Spin!");
+		
+		endVector[0] = (new Vector3(20,180,-135));	// Yellow side	#1  Id-0
+		endVector[1] = (new Vector3(45,72,63));		// Green side	#2  Id-1
+		endVector[2] = (new Vector3(-20,0,45));		// Blue side	#3  Id-2
+		endVector[3] = (new Vector3(-45,-105,23));	// Red side		#4  Id-3
+		endVector[4] = (new Vector3(45,73,-25));	// White side	#5  Id-4
+		endVector[5] = (new Vector3(-45,-107,113));	// Magenta side	#6  Id-5
 
-        endVector[0] = (new Vector3(20, 180, -135));    // Yellow side	#1  Id-0
-        endVector[1] = (new Vector3(45, 72, 63));       // Green side	#2  Id-1
-        endVector[2] = (new Vector3(-20, 0, 45));       // Blue side	#3  Id-2
-        endVector[3] = (new Vector3(-45, -105, 23));    // Red side		#4  Id-3
-        endVector[4] = (new Vector3(45, 73, -25));  // White side	#5  Id-4
-        endVector[5] = (new Vector3(-45, -107, 113));   // Magenta side	#6  Id-5
-
-        PanelXPlayer.SetActive(true);
-        PanelOPlayer.SetActive(false);
-
-        //what does this do??
-        for (var j = 100; j < 623; j++) aSquares[j] = 9;
-        numCubeSpins = 15;
-        cubeSpinSpeed = 50;
-    }
+		PanelXPlayer.SetActive (true);
+		PanelOPlayer.SetActive (false);
+		
+		//what does this do??
+		for (var j = 100; j < 623; j++) aSquares[j] = 9;
+		numCubeSpins = 15;
+		cubeSpinSpeed = 50;
+	}
 
 
-    public void SpinButton()
-    {
-        if (!gameIsOver)
-        {
+	public void SpinButton ()
+	{	
+		if(!gameIsOver)
+		{
             if (!hasBeenSpun)
             {
                 if (!cubeSpinning)
@@ -131,12 +128,12 @@ public class GameManager : MonoBehaviour {
                     UpdateInfo("Sorry, it's not your turn!");
                 }
             }
-        }
+		}
         else
         {
             spinButton.interactable = false;
         }
-    }
+	}
 
     [PunRPC]
     public void spinCubeRPC(Vector3 target)
@@ -144,16 +141,6 @@ public class GameManager : MonoBehaviour {
         cubeSpinSpeed = 50;
         instance.numCubeSpins = 15;
         endCubeVector = target;
-        SpinCube();
-    }
-
-    [PunRPC]
-    public void useMagicCubeRPC(int face)
-    {
-        usedMagicSquare = true;
-        endCubeVector = endVector[face];
-        numCubeSpins = 0;
-        StartCoroutine(CubeRotation());
         SpinCube();
     }
 
@@ -470,7 +457,6 @@ public class GameManager : MonoBehaviour {
             clickCount++;
             aSides[pieceScript.side - 1]++;
             hasBeenSpun = false;
-            usedMagicSquare = false;
         }
         CheckForWinner();
         ChangePlayer();
@@ -530,19 +516,6 @@ public class GameManager : MonoBehaviour {
         networkTest temp = PhotonView.Find(viewID).GetComponent<networkTest>();
         temp.myIndex = players.Count;
         players.Add(temp);
-    }
-
-    public void useMagicCube(int face)
-    {
-        if (!usedMagicSquare && !hasBeenSpun && !cubeSpinning)
-        {
-            if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
-            {
-                magicCubeButtons[face].interactable = false;
-                photonView.RPC("useMagicCubeRPC", PhotonTargets.AllBufferedViaServer, face);
-            }
-        }
-
     }
 
 
