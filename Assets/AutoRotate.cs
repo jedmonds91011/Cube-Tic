@@ -3,11 +3,9 @@ using System.Collections;
 
 public class AutoRotate : MonoBehaviour {
 	Quaternion rotationTo;
-	float elapsedTime;
 	// Use this for initialization
 	void Start () {
 		rotationTo = Random.rotationUniform;
-		elapsedTime = 0f;
 	}
 	
 	// Update is called once per frame

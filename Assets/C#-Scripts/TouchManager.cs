@@ -7,7 +7,6 @@ public class TouchManager : MonoBehaviour, IPointerDownHandler {
 
 	private Vector2 touchStart;
 	private Vector2 touchEnd;
-	private bool dragging;
 	private float timeDifference;
 
 	// Use this for initialization
@@ -52,7 +51,5 @@ public class TouchManager : MonoBehaviour, IPointerDownHandler {
 
 	public void OnPointerDown(PointerEventData data)
 	{
-		dragging = true;
-		
 	}
 }

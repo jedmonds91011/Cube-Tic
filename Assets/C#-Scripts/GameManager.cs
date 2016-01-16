@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PhotonView))]
 public class GameManager : MonoBehaviour {
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public int[] wCombos = new int[100];
     public int[] aSides = new int[7];
 
-    public GameObject cube;
+    //public GameObject cube;
     public Text iBox;
     public Text xBox;
     public Text oBox;
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour {
     public Button spinButton;
     public Button resetButton;
     public Button endGameButton;
+
+	public GameObject gameUI;
+	public Canvas endGameMenu;
+	public Text resultText;
+	public GameObject confettiParticle;
+	public GameObject cube;
 
     public List<Button> magicCubeButtons;
 
@@ -64,6 +71,14 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
+		cube.SetActive(false);
+		confettiParticle.SetActive(false);
+		gameUI.SetActive(false);
+		endGameMenu.enabled = false;
+		waitingCanvas.enabled = true;
+		waitingText.enabled = true;
+
+
         gameReady = false;
         networkMatch = true;
         if (instance == null)
@@ -78,6 +93,8 @@ public class GameManager : MonoBehaviour {
             spinButton.image.enabled = false;
             spinButtonText.enabled = false;
         }
+
+
     }
     void Start()
     {
@@ -167,7 +184,6 @@ public class GameManager : MonoBehaviour {
     IEnumerator CubeRotation ()
 	{
 		float elapsedTime = 0;
-		float time = 0.1f;
 		
 		int spinCenter = 0;
 		int max = endCube.Count;
@@ -238,11 +254,6 @@ public class GameManager : MonoBehaviour {
 	{
 		oBox.text = oCntr.ToString();
 	}
-	
-	public void reStart()
-	{
-		Application.LoadLevel(1);
-	}
 
 	public void ChangePlayer()
 	{
@@ -265,7 +276,7 @@ public class GameManager : MonoBehaviour {
 		source.PlayOneShot (soundClips [2]);
 		//xCount++;
 		xCount++;
-		xCount = xCount;
+		//xCount = xCount;
 		wCombos[cbx] = 1;
 		UpdateXCount(xCount);
 	}
@@ -276,7 +287,7 @@ public class GameManager : MonoBehaviour {
 		source.PlayOneShot (soundClips [2]);
 		//oCount++;
 		oCount++;
-		oCount = oCount;
+		//oCount = oCount;
 		wCombos[cbo] = 2;
 		UpdateOCount(oCount);
 	}
@@ -430,17 +441,19 @@ public class GameManager : MonoBehaviour {
 			//gameIsOver = true;
 			if (xCount == oCount) 
 			{
-				UpdateInfo("Game Over!, It's a TIE, NOOOOOOOO");
+				UpdateInfo("Game Over!, It's a TIENOOOOOOOO");
+				resultText.text = "Game Over!\n It's a TIE\n NOOOOOOOO";
 			}
 			else if (xCount > oCount)
 			{
 				UpdateInfo("Game Over!, X Wins!, Hooray!");
+				resultText.text = "Game Over!\n X Wins!\n Hooray!";
 			}
 			else 
 			{
-				UpdateInfo("Game Over!, O Wins!, BOOOOO!");		
+				UpdateInfo("Game Over!, O Wins!, BOOOOO!");	
+				resultText.text = "Game Over!\n O Wins!\n BOOOOO!";
 			}
-			Debug.Log("after game info X =" + xCount + " O =" + oCount);
 		}
 		else
 		{
@@ -478,6 +491,13 @@ public class GameManager : MonoBehaviour {
         {
             GameManager.instance.UpdateInfo("Ok, " + GameManager.instance.playerName[GameManager.instance.currentPlayer] + " it's your turn to Spin");
         }
+		else
+		{
+			cube.SetActive(false);
+			gameUI.SetActive(false);
+			confettiParticle.SetActive(true);
+			endGameMenu.enabled = true;
+		}
     }
 
 	public void BackToLobby()
@@ -530,6 +550,10 @@ public class GameManager : MonoBehaviour {
         networkTest temp = PhotonView.Find(viewID).GetComponent<networkTest>();
         temp.myIndex = players.Count;
         players.Add(temp);
+
+		cube.SetActive(true);
+		gameUI.SetActive(true);
+
     }
 
     public void useMagicCube(int face)
@@ -545,5 +569,14 @@ public class GameManager : MonoBehaviour {
 
     }
 
+	public void restartMatch()
+	{
+		SceneManager.LoadScene("MultiplayerScene",LoadSceneMode.Single);
+	}
+
+	public void backToMain()
+	{
+		SceneManager.LoadScene("MenuScreen",LoadSceneMode.Single);
+	}
 
 }
