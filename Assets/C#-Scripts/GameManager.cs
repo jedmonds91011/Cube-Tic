@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject confettiParticle;
 	public GameObject cube;
 
+	public GameObject playerPrefab;
+
     public List<Button> magicCubeButtons;
 
     public Image waitingCanvas;
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour {
 
 
         gameReady = false;
-        networkMatch = true;
+       
         if (instance == null)
         {
             instance = this;
@@ -93,6 +95,20 @@ public class GameManager : MonoBehaviour {
             spinButton.image.enabled = false;
             spinButtonText.enabled = false;
         }
+
+		if(!networkMatch)
+		{
+			for(int i = 0; i < 2; i++)
+			{
+				networkTest temp = ((GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity)).GetComponent<networkTest>();
+				waitingCanvas.enabled = false;
+				waitingText.enabled = false;
+				temp.myIndex = players.Count;
+				players.Add(temp);
+				cube.SetActive(true);
+				gameUI.SetActive(true);
+			}
+		}
 
 
     }
@@ -126,20 +142,28 @@ public class GameManager : MonoBehaviour {
             {
                 if (!cubeSpinning)
                 {
-                    if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
-                    {
-                        getEndCubeFace();
-                        photonView.RPC("spinCubeRPC", PhotonTargets.AllBufferedViaServer, endCubeVector);
-                    }
-                    else
-                    {
-                        UpdateInfo("Sorry,it is not your turn!");
-                    }
+					if(networkMatch)
+					{
+	                    if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+	                    {
+	                        getEndCubeFace();
+	                        photonView.RPC("spinCubeRPC", PhotonTargets.AllBufferedViaServer, endCubeVector);
+	                    }
+	                    else
+	                    {
+	                        UpdateInfo("Sorry,it is not your turn!");
+	                    }
+					}
+					else
+					{
+						getEndCubeFace();
+						SpinCube();
+					}
                 }
             }
             else
             {
-                if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+                if (!networkMatch || players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
                 {
                     UpdateInfo("The cube has been spun, click a square to place your piece");
                 }
@@ -268,6 +292,20 @@ public class GameManager : MonoBehaviour {
 		{
 			PanelXPlayer.SetActive(false);
 			PanelOPlayer.SetActive(true);
+		}
+		if(!networkMatch)
+		{
+			for(int i = 0; i < players[currentPlayer].myMagicCubes.Count; i++)
+			{
+				if(players[currentPlayer].myMagicCubes[i] > 0)
+				{
+					magicCubeButtons[i].interactable = true;
+				}
+				else
+				{
+					magicCubeButtons[i].interactable = false;
+				}
+			}
 		}
 	}
 
@@ -463,10 +501,40 @@ public class GameManager : MonoBehaviour {
 
 	public void playSquare(GameObject square)
 	{
-        if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+		if(!networkMatch)
+		{
+			ClickSquare pieceScript = square.GetComponent<ClickSquare>();
+			if (!pieceScript.isUsed)
+			{
+				source.PlayOneShot(soundClips[4]);
+				pieceScript.myPieces[currentPlayer].SetActive(true);
+				pieceScript.isUsed = true;
+				int answer = (pieceScript.side * 100) + (pieceScript.x * 10) + (pieceScript.y * 1);
+				aSquares[answer] = currentPlayer;
+				clickCount++;
+				aSides[pieceScript.side - 1]++;
+				hasBeenSpun = false;
+				usedMagicSquare = false;
+			}
+			CheckForWinner();
+			ChangePlayer();
+			if (!GameManager.instance.gameIsOver)
+			{
+				GameManager.instance.UpdateInfo("Ok, " + GameManager.instance.playerName[GameManager.instance.currentPlayer] + " it's your turn to Spin");
+			}
+			else
+			{
+				cube.SetActive(false);
+				gameUI.SetActive(false);
+				confettiParticle.SetActive(true);
+				endGameMenu.enabled = true;
+			}
+		}
+		else if (networkMatch && players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
         {
             photonView.RPC("playSquareRPC", PhotonTargets.AllBufferedViaServer, square.GetPhotonView().viewID);
         }
+
     }
 
     [PunRPC]
@@ -521,6 +589,7 @@ public class GameManager : MonoBehaviour {
                 waitingText.text = waitText;
             }
         }
+
     }
 
     public void initMultiplayer()
@@ -560,6 +629,16 @@ public class GameManager : MonoBehaviour {
     {
         if (!usedMagicSquare && !hasBeenSpun && !cubeSpinning)
         {
+			if(!networkMatch)
+			{
+				players[currentPlayer].myMagicCubes[face] = -1;
+				magicCubeButtons[face].interactable = false;
+				usedMagicSquare = true;
+				endCubeVector = endVector[face];
+				numCubeSpins = 0;
+				StartCoroutine(CubeRotation());
+				SpinCube();
+			}
             if (players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
             {
                 magicCubeButtons[face].interactable = false;
@@ -571,7 +650,14 @@ public class GameManager : MonoBehaviour {
 
 	public void restartMatch()
 	{
-		SceneManager.LoadScene("MultiplayerScene",LoadSceneMode.Single);
+		if(networkMatch)
+		{
+			SceneManager.LoadScene("MultiplayerScene",LoadSceneMode.Single);
+		}
+		else
+		{
+			SceneManager.LoadScene("SinglePlayerScene",LoadSceneMode.Single);
+		}
 	}
 
 	public void backToMain()

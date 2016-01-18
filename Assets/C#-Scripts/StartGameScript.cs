@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 public class StartGameScript : MonoBehaviour {
 
 
-    public void letsPlayButtonAction()
+	public void letsPlayButtonAction(bool isNetworkGame)
     {
         //Application.LoadLevel("test2.5d");
-		SceneManager.LoadScene("MultiplayerScene", LoadSceneMode.Single);
+		if(isNetworkGame)
+		{
+			SceneManager.LoadScene("MultiplayerScene", LoadSceneMode.Single);
+		}
+		else
+		{
+			SceneManager.LoadScene("SinglePlayerScene", LoadSceneMode.Single);
+		}
         
     }
 }

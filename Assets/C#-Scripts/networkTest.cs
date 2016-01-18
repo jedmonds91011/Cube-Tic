@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PhotonView))]
 public class networkTest : Photon.MonoBehaviour
@@ -9,6 +10,9 @@ public class networkTest : Photon.MonoBehaviour
     public int myIndex;
     public string myTextBase;
     public PhotonView myPhotonView;
+	public List<int> myMagicCubes;
+
+	public 
 
     void Awake()
     {
