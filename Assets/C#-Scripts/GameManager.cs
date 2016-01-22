@@ -515,6 +515,10 @@ public class GameManager : MonoBehaviour {
 				aSides[pieceScript.side - 1]++;
 				hasBeenSpun = false;
 				usedMagicSquare = false;
+                if(aSides[pieceScript.side - 1] == 9)
+                {
+                    magicCubeButtons[pieceScript.side - 1].interactable = false;
+                }
 			}
 			CheckForWinner();
 			ChangePlayer();
@@ -652,17 +656,24 @@ public class GameManager : MonoBehaviour {
 	{
 		if(networkMatch)
 		{
-			SceneManager.LoadScene("MultiplayerScene",LoadSceneMode.Single);
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene("MultiplayerScene",LoadSceneMode.Single);
 		}
 		else
 		{
+            
 			SceneManager.LoadScene("SinglePlayerScene",LoadSceneMode.Single);
 		}
 	}
+
+	
 
 	public void backToMain()
 	{
 		SceneManager.LoadScene("MenuScreen",LoadSceneMode.Single);
 	}
+
+   
 
 }
