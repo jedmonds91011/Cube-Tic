@@ -515,9 +515,11 @@ public class GameManager : MonoBehaviour {
 				aSides[pieceScript.side - 1]++;
 				hasBeenSpun = false;
 				usedMagicSquare = false;
-                if(aSides[pieceScript.side - 1] == 9)
+                if(aSides[pieceScript.side - 1] > 8)
                 {
                     magicCubeButtons[pieceScript.side - 1].interactable = false;
+                    players[0].myMagicCubes[pieceScript.side - 1] = -1;
+                    players[1].myMagicCubes[pieceScript.side - 1] = -1;
                 }
 			}
 			CheckForWinner();
@@ -554,6 +556,12 @@ public class GameManager : MonoBehaviour {
             aSquares[answer] = currentPlayer;
             clickCount++;
             aSides[pieceScript.side - 1]++;
+            if(aSides[pieceScript.side - 1] > 8)
+            {
+                magicCubeButtons[pieceScript.side - 1].interactable = false;
+                players[0].myMagicCubes[pieceScript.side - 1] = -1;
+                players[1].myMagicCubes[pieceScript.side - 1] = -1;
+            }
             hasBeenSpun = false;
             usedMagicSquare = false;
         }
