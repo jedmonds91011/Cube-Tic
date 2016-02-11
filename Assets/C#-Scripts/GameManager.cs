@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
     public float cubeSpinSpeed;
     public int endFaceIndex;
     public Vector3 endCubeVector;
+    public int faceIndex;
 
 
     public List<int> networkIds;
@@ -65,10 +66,16 @@ public class GameManager : MonoBehaviour {
     public bool networkMatch;
     public bool gameReady;
     public PhotonView photonView;
+    public bool againstAI;
+    public bool aiPlayingSquare = false;
+
+    public List<GameObject> possibleWins;
+    public List<GameObject> possibleBlocks;
+    public List<GameObject> possibleMoves;
+    public List<GameObject> cubeFaces;
 
 
 
-    //public Vector3[] endCube = new Vector3[9];
 
     // Use this for initialization
     void Awake()
@@ -108,6 +115,10 @@ public class GameManager : MonoBehaviour {
 				cube.SetActive(true);
 				gameUI.SetActive(true);
 			}
+            if(againstAI)
+            {
+                players[1].isAI = true;
+            }
 		}
 
 
@@ -133,7 +144,8 @@ public class GameManager : MonoBehaviour {
         cubeSpinSpeed = 50;
     }
 
-
+  
+    
     public void SpinButton()
     {
         if (!gameIsOver)
@@ -163,7 +175,7 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                if (!networkMatch || players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer)
+                if (!networkMatch || players[currentPlayer].myPhotonView.isMine && players[currentPlayer].myIndex == currentPlayer && !players[currentPlayer].isAI)
                 {
                     UpdateInfo("The cube has been spun, click a square to place your piece");
                 }
@@ -257,6 +269,16 @@ public class GameManager : MonoBehaviour {
 		}
 		endFaceIndex = Random.Range (0, endCube.Count);
 		endCubeVector = endCube [endFaceIndex];
+        for(int i = 0; i < 6; i++)
+        {
+            if(endVector[i] == endCubeVector)
+            {
+                faceIndex = i;
+                break;
+            }
+        }
+        
+
 	}
 	
 	public void UpdateClickCount(int clkCnt)
@@ -281,6 +303,10 @@ public class GameManager : MonoBehaviour {
 
 	public void ChangePlayer()
 	{
+        if(players[currentPlayer].isAI)
+        {
+            spinButton.interactable = true;
+        }
 		currentPlayer++;
 		if(currentPlayer > 1)
 		{
@@ -602,7 +628,53 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        if(!networkMatch && !gameIsOver)
+        {
+            if(players[currentPlayer].isAI)
+            {
+                spinButton.interactable = false;
+                if (!hasBeenSpun && !cubeSpinning)
+                {
+                    StartCoroutine(waitForSpin());
+                }
+                else
+                {
+                    if(!cubeSpinning && !aiPlayingSquare)
+                    {
+                        StartCoroutine(waitToPlay());
+                    }
+                }
+            }
+        }
+
     }
+
+    public IEnumerator waitForSpin()
+    {
+        yield return new WaitForSeconds(1);
+        SpinButton();
+    }
+
+    public IEnumerator waitToPlay()
+    {
+        aiPlayingSquare = true;
+        yield return new WaitForSeconds(0.5f);
+        cubeFaces[faceIndex].GetComponent<CubeFace>().checkForBestMoves();
+        if (possibleWins.Count > 0)
+        {
+            playSquare(possibleWins[Random.Range(0, possibleWins.Count)]);
+        }
+        else if (possibleBlocks.Count > 0)
+        {
+            playSquare(possibleBlocks[Random.Range(0, possibleBlocks.Count)]);
+        }
+        else
+        {
+            playSquare(possibleMoves[Random.Range(0, possibleMoves.Count)]);
+        }
+        aiPlayingSquare = false;
+    }
+
 
     public void initMultiplayer()
     {
@@ -666,12 +738,12 @@ public class GameManager : MonoBehaviour {
 		{
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.Disconnect();
-            SceneManager.LoadScene("MultiplayerScene",LoadSceneMode.Single);
+            SceneManager.LoadScene("MultiplayerScene");
 		}
 		else
 		{
             
-			SceneManager.LoadScene("SinglePlayerScene",LoadSceneMode.Single);
+			SceneManager.LoadScene("SinglePlayerScene");
 		}
 	}
 
@@ -679,7 +751,7 @@ public class GameManager : MonoBehaviour {
 
 	public void backToMain()
 	{
-		SceneManager.LoadScene("MenuScreen",LoadSceneMode.Single);
+		SceneManager.LoadScene("MenuScreen");
 	}
 
    

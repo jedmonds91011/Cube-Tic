@@ -11,8 +11,8 @@ public class networkTest : Photon.MonoBehaviour
     public string myTextBase;
     public PhotonView myPhotonView;
 	public List<int> myMagicCubes;
+    public bool isAI;
 
-	public 
 
     void Awake()
     {
