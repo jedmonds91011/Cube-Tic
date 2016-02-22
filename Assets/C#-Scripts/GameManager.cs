@@ -740,11 +740,14 @@ public class GameManager : MonoBehaviour {
             PhotonNetwork.Disconnect();
             SceneManager.LoadScene("MultiplayerScene");
 		}
-		else
+		else if(againstAI)
 		{
-            
-			SceneManager.LoadScene("SinglePlayerScene");
-		}
+            SceneManager.LoadScene("SinglePlayerAIScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("SinglePlayerScene");
+        }
 	}
 
 	
